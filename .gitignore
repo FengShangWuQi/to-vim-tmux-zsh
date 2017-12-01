@@ -1,0 +1,13 @@
+# log
+*.log
+
+# Runtime data
+.DS_Store
+*.pid
+
+# dependencies
+node_modules
+
+*.idea/
+.vscode/
+.agignore
