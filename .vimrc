@@ -72,7 +72,6 @@ autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
-let g:NERDTreeShowBookmarks = 1
 
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_focus_on_files = 1
