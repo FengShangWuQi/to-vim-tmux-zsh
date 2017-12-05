@@ -198,15 +198,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
-let g:NERDTreeShowBookmarks = 1
 
 let g:nerdtree_tabs_open_on_console_startup = 1
-let g:nerdtree_tabs_autofind = 1
+let g:nerdtree_tabs_focus_on_files = 1
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
