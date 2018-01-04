@@ -282,10 +282,11 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 - [w0rp/ale](https://github.com/w0rp/ale)
 - [sheerun/vim-polyglot](https://github.com/sheerun/vim-polyglot)
 
-### `文件，代码搜索`
+### `文件，代码搜索，打开最近打开的文件`
 ```
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'vim-scripts/mru.vim'
 
 let g:ag_highlight=1
 let g:ag_working_path_mode="r"
@@ -302,20 +303,39 @@ let g:ctrlp_custom_ignore = {
 
 # <c-r>: 切换匹配模式
 # <c-t> or <c-v>, <c-x>：在新的 tab 中打开
+
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
+let MRU_Window_Height = 15
+
+# :MRU
 ```
 - [kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
 - [ggreer/the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 - [rking/ag.vim](https://github.com/rking/ag.vim)
+- [vim-scripts/mru.vim](https://github.com/vim-scripts/mru.vim)
 
 ### `加强版状态栏`
 ```
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
-let g:airline_theme='papercolor'
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'helloworld' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component': {
+      \   'helloworld': 'Hello, 枫上雾棋!'
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 ```
-- [vim-airline/vim-airline](https://github.com/vim-airline/vim-airline)
-- [vim-airline/vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+- [itchyny/lightline.vim](https://github.com/itchyny/lightline.vim)
 
 ### `代码注释`
 ```
@@ -354,12 +374,16 @@ Plug 'tpope/vim-fugitive'
 ### `Markdown`
 ```
 Plug 'suan/vim-instant-markdown'
+Plug 'junegunn/goyo.vim'
+Plug 'amix/vim-zenroom2'
 
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
 # :InstantMarkdownPreview
 ```
 - [suan/vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
+- [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)
+- [amix/vim-zenroom2](https://github.com/amix/vim-zenroom2)
 
 ### `Emmet`
 ```
@@ -440,3 +464,11 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 # :Prettier
 ```
 - [prettier/vim-prettier](https://github.com/prettier/vim-prettier)
+
+### `自动规范化中文排版`
+```
+Plug 'hotoo/pangu.vim'
+
+# :Pangu
+```
+- [hotoo/pangu.vim](https://github.com/hotoo/pangu.vim)
