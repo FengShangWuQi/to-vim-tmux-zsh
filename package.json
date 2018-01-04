@@ -1,6 +1,5 @@
 {
-  "name": "to-vim",
-  "version": "1.0.0",
+  "private": true,
   "description": "如何让 vim 成为我们的神器",
   "main": ".vimrc",
   "author": "枫上雾棋",

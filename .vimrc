@@ -24,9 +24,6 @@ set is
 " 显示行号
 set number
 
-" 取消换行
-set nowrap
-
 " 显示光标当前位置
 set ruler
 
@@ -127,10 +124,11 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 " -----------------------------------------------
-" 文件，代码搜索
+" 文件，代码搜索，打开最近打开的文件
 " -----------------------------------------------
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'vim-scripts/mru.vim'
 
 let g:ag_highlight=1
 let g:ag_working_path_mode="r"
@@ -143,15 +141,32 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
+let MRU_Window_Height = 15
+
 
 
 " -----------------------------------------------
 " 加强版状态条
 " -----------------------------------------------
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
-let g:airline_theme='papercolor'
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'helloworld' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component': {
+      \   'helloworld': 'Hello, 枫上雾棋!'
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 
 
 
@@ -168,7 +183,7 @@ let g:NERDCustomDelimiters = {
 		\ }
 
 let g:NERDAltDelims_javascript = 1
-let g:NERDDefaultNesting = 0
+let g:NERDDefaultNesting = 1
 
 
 
@@ -181,12 +196,15 @@ Plug 'tpope/vim-fugitive'
 
 
 " -----------------------------------------------
-" Vim Markdown
+" Markdown
 " -----------------------------------------------
 Plug 'suan/vim-instant-markdown'
+Plug 'junegunn/goyo.vim'
+Plug 'amix/vim-zenroom2'
 
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
+
 
 
 
@@ -234,7 +252,6 @@ Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
-set foldmethod=syntax
 let g:javascript_conceal_function             = "ƒ"
 let g:javascript_conceal_null                 = "ø"
 let g:javascript_conceal_this                 = "@"
@@ -248,6 +265,8 @@ let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
 set conceallevel=1
+
+
 
 
 
@@ -273,8 +292,18 @@ let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
 
-  
-  
+
+
+
+" -----------------------------------------------
+" 盘古之白
+" -----------------------------------------------
+Plug 'hotoo/pangu.vim'
+
+
+
+
+
 
 
 
