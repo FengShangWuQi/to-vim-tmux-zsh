@@ -17,7 +17,6 @@ set is
 
 
 
-
 "==========================================
 "  显示设置
 "==========================================
@@ -51,12 +50,11 @@ colorscheme solarized
 
 
 
-
 "==========================================
 " vim-plug
 "==========================================
 
-call plug#begin('~/.vim/plugged')                                                                     
+call 	plug#begin('~/.vim/plugged')                                                                     
 
 " -----------------------------------------------
 " 树形目录
@@ -88,12 +86,16 @@ let g:NERDTreeIndicatorMapCustom = {
 
 
 
+
+
 " -----------------------------------------------
 " 代码，引号，路径自动补全
 " -----------------------------------------------
 Plug 'Valloric/YouCompleteMe'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+
 
 
 
@@ -123,6 +125,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 
+
 " -----------------------------------------------
 " 文件，代码搜索，打开最近打开的文件
 " -----------------------------------------------
@@ -146,6 +149,8 @@ let MRU_Window_Height = 15
 
 
 
+
+
 " -----------------------------------------------
 " 加强版状态条
 " -----------------------------------------------
@@ -155,18 +160,17 @@ let g:lightline = {
       \ 'colorscheme': 'powerline',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified', 'helloworld' ] ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
       \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component': {
-      \   'helloworld': 'Hello, 枫上雾棋!'
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+
+
 
 
 
@@ -187,11 +191,16 @@ let g:NERDDefaultNesting = 1
 
 
 
+
+
+
 " -----------------------------------------------
 " git
 " -----------------------------------------------
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+
+
 
 
 
@@ -222,10 +231,15 @@ let g:user_emmet_settings = {
 
 
 
+
+
+
 " -----------------------------------------------
 " html5
 " -----------------------------------------------
 Plug 'othree/html5.vim'
+
+
 
 
 
@@ -241,6 +255,9 @@ augroup VimCSS3Syntax
 
   autocmd FileType css setlocal iskeyword+=-
 augroup END
+
+
+
 
 
 
@@ -271,6 +288,17 @@ set conceallevel=1
 
 
 " -----------------------------------------------
+" js-beautify
+" -----------------------------------------------
+Plug 'maksimr/vim-jsbeautify'
+
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+
+
+
+
+
+" -----------------------------------------------
 " React
 " -----------------------------------------------
 Plug 'mxw/vim-jsx'
@@ -279,18 +307,24 @@ let g:jsx_ext_required = 0
 
 
 
+
+
+
+
 " -----------------------------------------------
 " Prettier
 " -----------------------------------------------
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown'] }
 
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md PrettierAsync
+
+
 
 
 
@@ -299,13 +333,6 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 " 盘古之白
 " -----------------------------------------------
 Plug 'hotoo/pangu.vim'
-
-
-
-
-
-
-
 
 
 

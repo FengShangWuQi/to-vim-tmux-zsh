@@ -4,38 +4,10 @@
   "main": ".vimrc",
   "author": "枫上雾棋",
   "scripts": {
-    "precommit": "lint-staged",
     "commitmsg": "validate-commit-msg"
   },
   "devDependencies": {
-    "eslint": "^4.9.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.5.1",
-    "husky": "^0.14.3",
-    "lint-staged": "^4.3.0",
-    "prettier": "1.7.4",
-    "stylelint-config-standard": "^17.0.0",
     "validate-commit-msg": "^2.14.0"
-  },
-  "lint-staged": {
-    "__test__/*.{js,jsx}": [
-      "prettier --single-quote --trailing-comma es5 --write",
-      "eslint --fix",
-      "git add"
-    ],
-    "__test__/*.css": [
-      "prettier --single-quote --trailing-comma es5 --write",
-      "stylelint --fix",
-      "git add"
-    ]
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard"
-  },
-  "eslintConfig": {
-    "extends": "airbnb"
   },
   "license": "MIT"
 }
