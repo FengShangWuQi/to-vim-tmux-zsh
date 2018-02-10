@@ -1,7 +1,7 @@
 {
   "private": true,
-  "description": "如何让 vim 成为我们的神器",
-  "main": ".vimrc",
+  "description": "使用 vim + tmux + zsh",
+  "keywords": ["vim", "tmux", "zsh"],
   "author": "枫上雾棋",
   "scripts": {
     "commitmsg": "validate-commit-msg"

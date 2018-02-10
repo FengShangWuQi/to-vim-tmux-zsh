@@ -11,3 +11,5 @@ node_modules
 *.idea/
 .vscode/
 .agignore
+
+yarn.lock
