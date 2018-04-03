@@ -7,14 +7,14 @@
 
 ## 安装
 
-```
-sudo apt-get install vim  // Ubuntu
+```bash
+$ sudo apt-get install vim  // Ubuntu
 ```
 
 ## 新手指南
 
-```
-vimtutor  // vim 教程
+```bash
+$ vimtutor  // vim 教程
 ```
 
 ### `移动光标`
@@ -137,45 +137,45 @@ $ Ctrl+W =/+/-
 
 `.vimrc` 是 `Vim` 的配置文件，需要我们自己创建
 
-```
-cd
-touch .vimrc
+```bash
+$ cd
+$ touch .vimrc
 ```
 
 ### `取消备份`
 
-```
+```vim
 set nobackup
 set noswapfile
 ```
 
 ### `文件编码`
 
-```
+```vim
 set encoding=utf-8
 ```
 
 ### `显示行号`
 
-```
+```vim
 set number
 ```
 
 ### `取消换行`
 
-```
+```vim
 set nowrap
 ```
 
 ### `显示光标当前位置`
 
-```
+```vim
 set ruler
 ```
 
 ### `设置缩进`
 
-```
+```vim
 set cindent
 
 set tabstop=2
@@ -184,13 +184,13 @@ set shiftwidth=2
 
 ### `突出显示当前行`
 
-```
+```vim
 set cursorline
 ```
 
 ### `查找`
 
-```
+```vim
 set ic
 set hls
 set is
@@ -198,20 +198,20 @@ set is
 
 ### `左下角显示当前 vim 模式`
 
-```
+```vim
 set showmode
 ```
 
 ### `代码折叠`
 
-```
+```vim
 # 启动 vim 时关闭折叠代码
 set nofoldenable
 ```
 
 ### `主题`
 
-```
+```vim
 syntax enable
 set background=dark
 colorscheme solarized
@@ -226,7 +226,7 @@ colorscheme solarized
 
 ### `树形目录`
 
-```
+```vim
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -283,7 +283,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 ### `代码，引号，路径补全`
 
-```
+```vim
 Plug 'Valloric/YouCompleteMe'
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -295,7 +295,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 ### `语法高亮，检查`
 
-```
+```vim
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 
@@ -322,7 +322,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 ### `文件，代码搜索，打开最近打开的文件`
 
-```
+```vim
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/mru.vim'
@@ -356,7 +356,7 @@ let MRU_Window_Height = 15
 
 ### `加强版状态栏`
 
-```
+```vim
 Plug 'itchyny/lightline.vim'
 
 let g:lightline = {
@@ -381,7 +381,7 @@ let g:lightline = {
 
 ### `代码注释`
 
-```
+```vim
 Plug 'scrooloose/nerdcommenter'
 
 # <leader>c<space> 注释/取消注释
@@ -409,7 +409,7 @@ let g:NERDDefaultNesting = 0
 
 ### `git`
 
-```
+```vim
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 ```
@@ -419,7 +419,7 @@ Plug 'tpope/vim-fugitive'
 
 ### `Markdown`
 
-```
+```vim
 Plug 'suan/vim-instant-markdown'
 Plug 'junegunn/goyo.vim'
 Plug 'amix/vim-zenroom2'
@@ -435,7 +435,7 @@ let g:instant_markdown_autostart = 0
 
 ### `Emmet`
 
-```
+```vim
 Plug 'mattn/emmet-vim'
 
 let g:user_emmet_leader_key='<C-Z>'
@@ -450,7 +450,7 @@ let g:user_emmet_settings = {
 
 ### `html 5`
 
-```
+```vim
 Plug 'othree/html5.vim'
 ```
 
@@ -458,7 +458,7 @@ Plug 'othree/html5.vim'
 
 ### `css 3`
 
-```
+```vim
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color'
 
@@ -474,7 +474,7 @@ augroup END
 
 ### `JavaScipt`
 
-```
+```vim
 Plug 'pangloss/vim-javascript'
 
 let g:javascript_plugin_jsdoc = 1
@@ -500,7 +500,7 @@ set conceallevel=1
 
 ### `js-beautify`
 
-```
+```vim
 Plug 'maksimr/vim-jsbeautify'
 
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
@@ -510,7 +510,7 @@ autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 
 ### `React`
 
-```
+```vim
 Plug 'mxw/vim-jsx'
 
 let g:jsx_ext_required = 0
@@ -520,7 +520,7 @@ let g:jsx_ext_required = 0
 
 ### `Prettier`
 
-```
+```vim
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown] }
@@ -537,7 +537,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 ### `自动规范化中文排版`
 
-```
+```vim
 Plug 'hotoo/pangu.vim'
 
 # :Pangu
