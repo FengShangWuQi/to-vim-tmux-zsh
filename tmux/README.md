@@ -29,7 +29,7 @@
 ## window
 
 - 查看所有窗口：```tmux lsw```
-- 交换窗口顺序：```swap-window -s 3 -t 1```
+- 交换窗口顺序：```tmux swap-window -s 3 -t 1```
 
 ```
 - 创建新窗口：c

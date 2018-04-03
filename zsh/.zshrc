@@ -61,7 +61,6 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(
   git
 	z
-	catimg
 	zsh-syntax-highlighting
 	zsh-autosuggestions
 )
