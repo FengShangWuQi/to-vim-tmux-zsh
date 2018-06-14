@@ -1,13 +1,18 @@
 {
   "private": true,
   "description": "使用 vim + tmux + zsh",
-  "keywords": ["vim", "tmux", "zsh"],
-  "author": "枫上雾棋",
+  "keywords": [
+    "vim",
+    "tmux",
+    "zsh"
+  ],
+  "author": "枫上雾棋 <fengshangwuqi@gmail.com>",
   "scripts": {
-    "commitmsg": "validate-commit-msg"
+    "commitmsg": "commitlint -x @commitlint/config-conventional -e $GIT_PARAMS"
   },
   "devDependencies": {
-    "validate-commit-msg": "^2.14.0"
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1"
   },
   "license": "MIT"
 }
