@@ -106,10 +106,12 @@ Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 
 let g:ale_linters = {
+\	'typesript': ['tslint'],
 \	'javascript': ['eslint'],
 \	'css': ['stylelint'],
 \}
 let g:ale_fixers = {
+\	'typesript': ['tslint'],
 \	'javascript': ['eslint'],
 \	'css': ['stylelint'],
 \}
@@ -333,6 +335,46 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 " 盘古之白
 " -----------------------------------------------
 Plug 'hotoo/pangu.vim'
+
+
+
+
+
+
+
+" -----------------------------------------------
+" TypeScript 
+" -----------------------------------------------
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+
+
+
+
+
+
+" -----------------------------------------------
+" vimwiki 
+" -----------------------------------------------
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+map ws :Vimwiki2HTML<CR>
+map wb :VimwikiAll2HTML<CR>
+map <Leader>tt <Plug>VimwikiToggleListItem
+let g:vimwiki_list = [{
+	\ 'path': '~/FSWQ-WIKI',
+	\ 'path_html': '~/FSWQ-WIKI/site/',
+	\ 'template_path': '~/FSWQ-WIKI/public/',
+	\ 'template_default': 'index',
+	\ 'template_ext': '.tpl',
+	\ 'nested_syntaxes': {
+		\ 'python': 'python',
+		\ 'ruby': 'ruby',
+		\ 'bash': 'sh',
+		\ 'c++': 'cpp',
+		\ 'javascript': 'javascript',
+		\ }
+	\ }]
+
 
 
 
