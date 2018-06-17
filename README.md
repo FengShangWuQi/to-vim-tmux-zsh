@@ -10,11 +10,18 @@ $ git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git
 # vim
 $ ln -s ./to-vim-tmux-zsh/vim/.vimrc .vimrc
 
+- plugin manager: vim-plug
+- theme: solarized
+
 # tmux
 $ ln -s ./to-vim-tmux-zsh/tmux/.tmux.conf .tmux.conf
 
+- plugin manager: tpm
+
 # zsh
 $ ln -s ./to-vim-tmux-zsh/zsh/.zshrc .zshrc
+
+- manage configuration: oh-my-zsh
 ```
 
 ## 截图
