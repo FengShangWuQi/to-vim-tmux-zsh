@@ -3,6 +3,7 @@
 " 基本设置
 "==========================================
 set nocp
+set backspace=2
 
 " 取消备份
 set nobackup
