@@ -23,5 +23,9 @@ echo $SHELL
 ## 使用 oh-my-zsh
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+## 修改 PS1
+- 进入 agnoster 主题
+- 删除 prompt_context
 ```
 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
