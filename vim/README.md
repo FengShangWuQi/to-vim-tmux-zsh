@@ -286,12 +286,10 @@ let g:NERDTreeIndicatorMapCustom = {
 ```vim
 Plug 'Valloric/YouCompleteMe'
 Plug 'Raimondi/delimitMate'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 ```
 
 * [Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 * [Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
-* [Shougo/deoplete.nvim](https://github.com/Shougo/deoplete.nvim)
 
 ### `语法高亮，检查`
 
@@ -323,16 +321,12 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 ### `文件，代码搜索，打开最近打开的文件`
 
 ```vim
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'vim-scripts/mru.vim'
 
-let g:ag_highlight=1
-let g:ag_working_path_mode="r"
+let g:ackprg = "ag --vimgrep"
 
-# :Ag! content
-
-set wildignore+=*.zip,*.exe
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = {
@@ -342,17 +336,11 @@ let g:ctrlp_custom_ignore = {
 
 # <c-r>: 切换匹配模式
 # <c-t> or <c-v>, <c-x>：在新的 tab 中打开
-
-let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
-let MRU_Window_Height = 15
-
-# :MRU
 ```
 
+* [mileszs/ack.vim](https://github.com/mileszs/ack.vim)
 * [kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
 * [ggreer/the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
-* [rking/ag.vim](https://github.com/rking/ag.vim)
-* [vim-scripts/mru.vim](https://github.com/vim-scripts/mru.vim)
 
 ### `加强版状态栏`
 
@@ -422,7 +410,6 @@ Plug 'tpope/vim-fugitive'
 ```vim
 Plug 'suan/vim-instant-markdown'
 Plug 'junegunn/goyo.vim'
-Plug 'amix/vim-zenroom2'
 
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
@@ -431,7 +418,6 @@ let g:instant_markdown_autostart = 0
 
 * [suan/vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
 * [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)
-* [amix/vim-zenroom2](https://github.com/amix/vim-zenroom2)
 
 ### `Emmet`
 
@@ -447,14 +433,6 @@ let g:user_emmet_settings = {
 ```
 
 * [mattn/emmet-vim](https://github.com/mattn/emmet-vim)
-
-### `html 5`
-
-```vim
-Plug 'othree/html5.vim'
-```
-
-* [othree/html5.vim](https://github.com/othree/html5.vim)
 
 ### `css 3`
 
@@ -563,9 +541,9 @@ map ws :Vimwiki2HTML<CR>
 map wb :VimwikiAll2HTML<CR>
 map <Leader>tt <Plug>VimwikiToggleListItem
 let g:vimwiki_list = [{
-	\ 'path': '~/FSWQ-WIKI',
-	\ 'path_html': '~/FSWQ-WIKI/site/',
-	\ 'template_path': '~/FSWQ-WIKI/public/',
+	\ 'path': '~/Documents/FSWQ-WIKI',
+	\ 'path_html': '~/Documents/FSWQ-WIKI/site/',
+	\ 'template_path': '~/Documents/FSWQ-WIKI/public/',
 	\ 'template_default': 'index',
 	\ 'template_ext': '.tpl',
 	\ 'nested_syntaxes': {
