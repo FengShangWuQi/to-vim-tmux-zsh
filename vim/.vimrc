@@ -2,9 +2,6 @@
 "==========================================
 " 基本设置
 "==========================================
-set nocp
-set backspace=2
-
 " 取消备份
 set nobackup
 set noswapfile
@@ -67,6 +64,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
@@ -96,7 +94,6 @@ let g:NERDTreeIndicatorMapCustom = {
 " -----------------------------------------------
 Plug 'Valloric/YouCompleteMe'
 Plug 'Raimondi/delimitMate'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 
@@ -134,23 +131,18 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " -----------------------------------------------
 " 文件，代码搜索，打开最近打开的文件
 " -----------------------------------------------
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'vim-scripts/mru.vim'
 
-let g:ag_highlight=1
-let g:ag_working_path_mode="r"
+let g:ackprg = "ag --vimgrep"
 
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](node_modules|DS_Store|dist|build|coverage)|(\.(git|hg|svn)$)',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
-
-let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
-let MRU_Window_Height = 15
 
 
 
@@ -214,7 +206,6 @@ Plug 'tpope/vim-fugitive'
 " -----------------------------------------------
 Plug 'suan/vim-instant-markdown'
 Plug 'junegunn/goyo.vim'
-Plug 'amix/vim-zenroom2'
 
 let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
@@ -233,16 +224,6 @@ let g:user_emmet_settings = {
     		\ 'extends' : 'jsx',
     	\ },
  		\ }
-
-
-
-
-
-
-" -----------------------------------------------
-" html5
-" -----------------------------------------------
-Plug 'othree/html5.vim'
 
 
 
@@ -364,9 +345,9 @@ map ws :Vimwiki2HTML<CR>
 map wb :VimwikiAll2HTML<CR>
 map <Leader>tt <Plug>VimwikiToggleListItem
 let g:vimwiki_list = [{
-	\ 'path': '~/FSWQ-WIKI',
-	\ 'path_html': '~/FSWQ-WIKI/site/',
-	\ 'template_path': '~/FSWQ-WIKI/public/',
+	\ 'path': '~/Documents/FSWQ-WIKI',
+	\ 'path_html': '~/Documents/FSWQ-WIKI/site/',
+	\ 'template_path': '~/Documents/FSWQ-WIKI/public/',
 	\ 'template_default': 'index',
 	\ 'template_ext': '.tpl',
 	\ 'nested_syntaxes': {
