@@ -1,4 +1,3 @@
-
 > # to-vim
 
 ![vim](../images/vim.png)
@@ -119,6 +118,7 @@ $ vimtutor  // vim 教程
 ```
 
 ### `分屏`
+
 ```
 $ Ctrl+W v  // 左右
 $ Ctrl+W s  // 上下
@@ -217,8 +217,8 @@ set background=dark
 colorscheme solarized
 ```
 
-* [altercation/vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
-* [Anthony25/gnome-terminal-colors-solarized](https://github.com/Anthony25/gnome-terminal-colors-solarized)
+- [altercation/vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
+- [Anthony25/gnome-terminal-colors-solarized](https://github.com/Anthony25/gnome-terminal-colors-solarized)
 
 ## 插件配置
 
@@ -277,9 +277,9 @@ let g:NERDTreeIndicatorMapCustom = {
 # gt      后一个 tab
 ```
 
-* [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
-* [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
-* [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
+- [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
+- [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
+- [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
 
 ### `代码，引号，路径补全`
 
@@ -288,8 +288,8 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'Raimondi/delimitMate'
 ```
 
-* [Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-* [Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
+- [Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+- [Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
 
 ### `语法高亮，检查`
 
@@ -315,8 +315,8 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 ```
 
-* [w0rp/ale](https://github.com/w0rp/ale)
-* [sheerun/vim-polyglot](https://github.com/sheerun/vim-polyglot)
+- [w0rp/ale](https://github.com/w0rp/ale)
+- [sheerun/vim-polyglot](https://github.com/sheerun/vim-polyglot)
 
 ### `文件，代码搜索，打开最近打开的文件`
 
@@ -338,9 +338,9 @@ let g:ctrlp_custom_ignore = {
 # <c-t> or <c-v>, <c-x>：在新的 tab 中打开
 ```
 
-* [mileszs/ack.vim](https://github.com/mileszs/ack.vim)
-* [kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
-* [ggreer/the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
+- [mileszs/ack.vim](https://github.com/mileszs/ack.vim)
+- [kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
+- [ggreer/the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 
 ### `加强版状态栏`
 
@@ -365,7 +365,7 @@ let g:lightline = {
       \ }
 ```
 
-* [itchyny/lightline.vim](https://github.com/itchyny/lightline.vim)
+- [itchyny/lightline.vim](https://github.com/itchyny/lightline.vim)
 
 ### `代码注释`
 
@@ -393,7 +393,7 @@ let g:NERDAltDelims_javascript = 1
 let g:NERDDefaultNesting = 0
 ```
 
-* [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+- [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 
 ### `git`
 
@@ -402,8 +402,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 ```
 
-* [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-* [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+- [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+- [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 
 ### `Markdown`
 
@@ -416,8 +416,8 @@ let g:instant_markdown_autostart = 0
 # :InstantMarkdownPreview
 ```
 
-* [suan/vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
-* [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)
+- [suan/vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
+- [junegunn/goyo.vim](https://github.com/junegunn/goyo.vim)
 
 ### `Emmet`
 
@@ -432,7 +432,7 @@ let g:user_emmet_settings = {
  		\ }
 ```
 
-* [mattn/emmet-vim](https://github.com/mattn/emmet-vim)
+- [mattn/emmet-vim](https://github.com/mattn/emmet-vim)
 
 ### `css 3`
 
@@ -447,8 +447,8 @@ augroup VimCSS3Syntax
 augroup END
 ```
 
-* [hail2u/vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax)
-* [ap/vim-css-color](https://github.com/ap/vim-css-color)
+- [hail2u/vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax)
+- [ap/vim-css-color](https://github.com/ap/vim-css-color)
 
 ### `JavaScipt`
 
@@ -474,7 +474,7 @@ let g:javascript_conceal_underscore_arrow_function = "🞅"
 set conceallevel=1
 ```
 
-* [pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)
+- [pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)
 
 ### `js-beautify`
 
@@ -484,7 +484,7 @@ Plug 'maksimr/vim-jsbeautify'
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 ```
 
-* [js-beautify](http://github.com/maksimr/vim-jsbeautify)
+- [js-beautify](http://github.com/maksimr/vim-jsbeautify)
 
 ### `React`
 
@@ -494,7 +494,7 @@ Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
 ```
 
-* [mxw/vim-jsx](https://github.com/mxw/vim-jsx)
+- [mxw/vim-jsx](https://github.com/mxw/vim-jsx)
 
 ### `Prettier`
 
@@ -511,7 +511,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 # :Prettier
 ```
 
-* [prettier/vim-prettier](https://github.com/prettier/vim-prettier)
+- [prettier/vim-prettier](https://github.com/prettier/vim-prettier)
 
 ### `自动规范化中文排版`
 
@@ -521,7 +521,7 @@ Plug 'hotoo/pangu.vim'
 # :Pangu
 ```
 
-* [hotoo/pangu.vim](https://github.com/hotoo/pangu.vim)
+- [hotoo/pangu.vim](https://github.com/hotoo/pangu.vim)
 
 ### `TypeScript`
 
@@ -530,8 +530,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 ```
 
-* [leafgarland/typescript-vim](https://github.com/leafgarland/typescript-vim)
-* [HerringtonDarkholme/yats.vim](https://github.com/HerringtonDarkholme/yats.vim)
+- [leafgarland/typescript-vim](https://github.com/leafgarland/typescript-vim)
+- [HerringtonDarkholme/yats.vim](https://github.com/HerringtonDarkholme/yats.vim)
 
 ### `vimwiki`
 
@@ -552,4 +552,4 @@ let g:vimwiki_list = [{
 	\ }]
 ```
 
-* [vimwiki/vimwiki](https://github.com/vimwiki/vimwiki)
+- [vimwiki/vimwiki](https://github.com/vimwiki/vimwiki)
