@@ -7,18 +7,18 @@ $ cd
 $ git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git
 
 # vim
-$ ln -s ./to-vim-tmux-zsh/vim/.vimrc .vimrc
+$ ln -s ./to-vim-tmux-zsh/.vimrc .vimrc
 
 - plugin manager: vim-plug
 - theme: solarized
 
 # tmux
-$ ln -s ./to-vim-tmux-zsh/tmux/.tmux.conf .tmux.conf
+$ ln -s ./to-vim-tmux-zsh/.tmux.conf .tmux.conf
 
 - plugin manager: tpm
 
 # zsh
-$ ln -s ./to-vim-tmux-zsh/zsh/.zshrc .zshrc
+$ ln -s ./to-vim-tmux-zsh/.zshrc .zshrc
 
 - manage configuration: oh-my-zsh
 ```
