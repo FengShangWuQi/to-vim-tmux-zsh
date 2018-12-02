@@ -7,13 +7,13 @@
 
 ## 安装
 
-```bash
+```
 $ sudo apt-get install vim  // Ubuntu
 ```
 
 ## 新手指南
 
-```bash
+```
 $ vimtutor  // vim 教程
 ```
 
@@ -501,12 +501,12 @@ let g:jsx_ext_required = 0
 ```vim
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 # :Prettier
 ```
@@ -541,16 +541,12 @@ map ws :Vimwiki2HTML<CR>
 map wb :VimwikiAll2HTML<CR>
 map <Leader>tt <Plug>VimwikiToggleListItem
 let g:vimwiki_list = [{
-	\ 'path': '~/Documents/FSWQ-WIKI',
-	\ 'path_html': '~/Documents/FSWQ-WIKI/site/',
-	\ 'template_path': '~/Documents/FSWQ-WIKI/public/',
+  \ 'path': '~/Documents/yourPath',
+	\ 'path_html': '~/Documents/pathToHtml/',
+	\ 'template_path': '~/Documents/pathToTemplate/',
 	\ 'template_default': 'index',
 	\ 'template_ext': '.tpl',
 	\ 'nested_syntaxes': {
-		\ 'python': 'python',
-		\ 'ruby': 'ruby',
-		\ 'bash': 'sh',
-		\ 'c++': 'cpp',
 		\ 'javascript': 'javascript',
 		\ }
 	\ }]
