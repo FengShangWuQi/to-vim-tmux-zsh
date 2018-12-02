@@ -6,7 +6,7 @@
     "tmux",
     "zsh"
   ],
-  "author": "枫上雾棋 <fengshangwuqi@gmail.com>",
+  "author": "fengshangwuqi <fengshangwuqi@gmail.com>",
   "scripts": {
     "format": "npx prettier --write '**/*.{js,ts,tsx,json,md}'"
   },
