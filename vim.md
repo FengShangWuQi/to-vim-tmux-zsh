@@ -1,6 +1,6 @@
 > # to-vim
 
-![vim](../images/vim.png)
+![vim](./images/vim.png)
 
 # 彪悍的编译器，不需要解释
 

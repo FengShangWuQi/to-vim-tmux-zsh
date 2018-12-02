@@ -1,6 +1,6 @@
 > # to-tmux
 
-![tmux](../images/tmux.png)
+![tmux](./images/tmux.png)
 
 # 一个窗口，帮你搞定所有
 
