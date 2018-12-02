@@ -115,8 +115,9 @@ let g:ale_fixers = {
 \	'javascript': ['eslint'],
 \	'css': ['stylelint'],
 \}
-let g:ale_fix_on_save = 1
 
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '▶'
@@ -135,6 +136,8 @@ Plug 'mileszs/ack.vim'
 Plug 'kien/ctrlp.vim'
 
 let g:ackprg = "ag --vimgrep"
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
@@ -302,13 +305,13 @@ let g:jsx_ext_required = 0
 " -----------------------------------------------
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'vue'] }
+	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
 
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 
 
@@ -345,16 +348,12 @@ map ws :Vimwiki2HTML<CR>
 map wb :VimwikiAll2HTML<CR>
 map <Leader>tt <Plug>VimwikiToggleListItem
 let g:vimwiki_list = [{
-	\ 'path': '~/Documents/FSWQ-WIKI',
-	\ 'path_html': '~/Documents/FSWQ-WIKI/site/',
-	\ 'template_path': '~/Documents/FSWQ-WIKI/public/',
+	\ 'path': '~/Documents/yourPath',
+	\ 'path_html': '~/Documents/pathToHtml/',
+	\ 'template_path': '~/Documents/pathToTemplate/',
 	\ 'template_default': 'index',
 	\ 'template_ext': '.tpl',
 	\ 'nested_syntaxes': {
-		\ 'python': 'python',
-		\ 'ruby': 'ruby',
-		\ 'bash': 'sh',
-		\ 'c++': 'cpp',
 		\ 'javascript': 'javascript',
 		\ }
 	\ }]
