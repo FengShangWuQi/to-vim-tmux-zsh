@@ -8,7 +8,7 @@
   ],
   "author": "fengshangwuqi <fengshangwuqi@gmail.com>",
   "scripts": {
-    "format": "npx prettier --write '**/*.{js,ts,tsx,json,md}'"
+    "format": "npx prettier --write '**/*.{json,md}'"
   },
   "husky": {
     "hooks": {
@@ -16,7 +16,7 @@
     }
   },
   "lint-staged": {
-    "**/*.{md}": [
+    "**/*.{json,md}": [
       "npx prettier --write",
       "git add"
     ]
