@@ -1,4 +1,3 @@
-
 > # to-vim-tmux-zsh
 
 ## 使用
