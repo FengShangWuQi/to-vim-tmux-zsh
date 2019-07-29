@@ -33,3 +33,18 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```
 
 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+## Plugin
+
+### [`git`](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/README.md)
+
+```
+$ g         // git
+$ gst       // git status
+$ ga        // git add
+$ gc!       // git commit -v --amend
+$ gcmsg     // git commit -m
+$ gup       // git pull --rebase
+$ ggp       // git push origin
+$ glo     // git log --oneline --decorate
+```
