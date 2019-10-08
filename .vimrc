@@ -340,27 +340,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 
 
-" -----------------------------------------------
-" vimwiki 
-" -----------------------------------------------
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
-map ws :Vimwiki2HTML<CR>
-map wb :VimwikiAll2HTML<CR>
-map <Leader>tt <Plug>VimwikiToggleListItem
-let g:vimwiki_list = [{
-	\ 'path': '~/Documents/yourPath',
-	\ 'path_html': '~/Documents/pathToHtml/',
-	\ 'template_path': '~/Documents/pathToTemplate/',
-	\ 'template_default': 'index',
-	\ 'template_ext': '.tpl',
-	\ 'nested_syntaxes': {
-		\ 'javascript': 'javascript',
-		\ }
-	\ }]
-
-
-
-
 
 
 
