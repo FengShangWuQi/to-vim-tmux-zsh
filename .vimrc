@@ -105,17 +105,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 
-let g:ale_linters = {
-\	'typesript': ['tslint'],
-\	'javascript': ['eslint'],
-\	'css': ['stylelint'],
-\}
-let g:ale_fixers = {
-\	'typesript': ['tslint'],
-\	'javascript': ['eslint'],
-\	'css': ['stylelint'],
-\}
-
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
@@ -276,23 +265,12 @@ set conceallevel=1
 
 
 
-" -----------------------------------------------
-" js-beautify
-" -----------------------------------------------
-Plug 'maksimr/vim-jsbeautify'
-
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-
-
-
 
 
 " -----------------------------------------------
 " React
 " -----------------------------------------------
 Plug 'mxw/vim-jsx'
-
-let g:jsx_ext_required = 0
 
 
 
@@ -303,15 +281,10 @@ let g:jsx_ext_required = 0
 " -----------------------------------------------
 " Prettier
 " -----------------------------------------------
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-	\ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue'] }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#jsx_bracket_same_line = 'false'
-let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 
 
