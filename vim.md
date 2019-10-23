@@ -402,6 +402,7 @@ let g:gitgutter_max_signs = 800
 
 - [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+- [tpope/vim-rhubarb](https://github.com/tpope/vim-rhubarb)
 
 ### `Markdown`
 
