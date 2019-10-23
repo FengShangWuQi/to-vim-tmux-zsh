@@ -186,8 +186,12 @@ let g:NERDDefaultNesting = 1
 " -----------------------------------------------
 " git
 " -----------------------------------------------
+set updatetime=100
+
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+
+let g:gitgutter_max_signs = 800
 
 
 
