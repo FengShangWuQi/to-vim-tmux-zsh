@@ -313,7 +313,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 ```vim
 Plug 'mileszs/ack.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 let g:ackprg = "ag --vimgrep"
 
@@ -330,7 +330,7 @@ let g:ctrlp_custom_ignore = {
 ```
 
 - [mileszs/ack.vim](https://github.com/mileszs/ack.vim)
-- [kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
+- [ctrlpvim/ctrlp.vim](https://github.com/ctrlpvim/ctrlp.vim)
 - [ggreer/the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 
 ### `加强版状态栏`
