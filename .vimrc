@@ -122,7 +122,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " 文件，代码搜索，打开最近打开的文件
 " -----------------------------------------------
 Plug 'mileszs/ack.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 let g:ackprg = "ag --vimgrep"
 cnoreabbrev Ack Ack!
