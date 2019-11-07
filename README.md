@@ -6,19 +6,16 @@
 # 克隆仓库
 $ git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git
 
-# 建立相关配置文件的软链接，方便直接更新
-$ ln -s ./to-vim-tmux-zsh/.vimrc ~/.vimrc
-$ ln -s ./to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
-$ ln -s ./to-vim-tmux-zsh/.zshrc ~/.zshrc
+# 建立相关配置文件的软链接，方便直接更新，注意使用绝对路径
+$ ln -s ~/Documents/to-vim-tmux-zsh/.vimrc ~/.vimrc
+$ ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
+$ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 
 # 安装相关插件和主题
 - vim plugin manager: vim-plug
 - vim theme: solarized
 - tmux plugin manager: tpm
 - zsh manage configuration: oh-my-zsh
-
-# 修改相关 path
-- ZSH in .zshrc
 ```
 
 ## 截图
