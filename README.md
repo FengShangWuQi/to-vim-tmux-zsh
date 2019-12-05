@@ -30,10 +30,10 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 
 一个窗口，帮你搞定所有
 
-![tmux](./images/tmux.png)
+![tmux](./images/tmux.jpg)
 
 ### zsh
 
 非常棒的 shell，没理由再使用 bash
 
-![zsh](./images/zsh.png)
+![zsh](./images/zsh.jpg)
