@@ -4,39 +4,33 @@
 
 # 非常棒的 shell，没理由再使用 bash
 
-## 查看系统中内置的几种 shell
-
+## 使用
 ```
+# 查看系统中内置的几种 shell
+
 cat /etc/shells
-```
 
-## 设置 zsh 为默认 shell
+# 设置 zsh 为默认 shell
 
-```
 chsh -s /bin/zsh
-```
 
-## 查看当前 shell
+# 查看当前 shell
 
-```
 echo $SHELL
 ```
 
-## 使用 oh-my-zsh
+## [oh-my-zsh](https://ohmyz.sh/)
+
+### 修改 PS1
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-## 修改 PS1
 - 进入 agnoster 主题
 - 删除 prompt_context
 ```
 
-[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+### Plugin
 
-## Plugin
-
-### [`git`](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/README.md)
+[`git`](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/README.md)
 
 ```
 $ g         // git
@@ -46,5 +40,28 @@ $ gc!       // git commit -v --amend
 $ gcmsg     // git commit -m
 $ gup       // git pull --rebase
 $ ggp       // git push origin
-$ glo     // git log --oneline --decorate
+$ glo       // git log --oneline --decorate
+```
+
+[`npm`](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md)
+
+```
+$ npmg         // npm i -g
+$ npmS         // npm i -S
+$ npmD         // npm i -D
+$ npmO         // npm outdated
+$ npmL0        // npm ls --depth=0
+$ npmst        // npm start
+$ npmt         // npm test
+$ npmR         // npm run
+```
+
+[`tmux`](https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md)
+
+```
+$ ta            // tmux attach -t
+$ tkss          // tmux kill-session -t
+$ tksv          // tmux kill-server
+$ ts            // tmux new-session -s
+$ tl            // tmux list-sessions
 ```
