@@ -1,10 +1,10 @@
 > # to-tmux
 
-![tmux](./images/tmux.png)
+![tmux](./images/tmux.jpg)
 
 # 一个窗口，帮你搞定所有
 
-## 几个重要的概念
+## 组成
 
 - session：会话，一个服务器可以包含多个会话
 - window：窗口，一个会话可以包含多个窗口
@@ -12,13 +12,22 @@
 
 ## session
 
-- 创建会话：`tmux new -s`
-- 重新开启会话：`tmux a -t`
-- 查看所有会话：`tmux ls`
-- 删除某个会话：`tmux kill-session -t`
-- 删除所有会话：`tmux kill-server`
-
 ```
+# 创建会话
+tmux new -s
+
+# 重新开启会话
+tmux a -t
+
+# 查看所有会话
+tmux ls
+
+# 删除某个会话
+tmux kill-session -t
+
+# 删除所有会话
+tmux kill-server
+
 - 重命名会话：$
 - 切换会话：s
 - 退出会话：d
@@ -27,10 +36,14 @@
 
 ## window
 
-- 查看所有窗口：`tmux lsw`
-- 交换窗口顺序：`tmux swap-window -s 3 -t 1`
-
 ```
+# 查看所有窗口
+tmux lsw
+
+# 交换窗口顺序
+tmux swap-window -s 3 -t 1
+
+
 - 创建新窗口：c
 - 列出所有窗口：w
 - 后一个窗口：n
