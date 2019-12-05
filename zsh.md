@@ -1,6 +1,6 @@
 > # to-zsh
 
-![zsh](./images/zsh.png)
+![zsh](./images/zsh.jpg)
 
 # 非常棒的 shell，没理由再使用 bash
 
