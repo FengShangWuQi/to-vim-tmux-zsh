@@ -398,6 +398,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 let g:gitgutter_max_signs = 800
+
+# :G
+# :Gw
+# :Gcommit
+# :Gdiffsplit
+# :Gblame
+# :Gbrowse
 ```
 
 - [airblade/vim-gitgutter](https://github.com/airblade/vim-gitgutter)
