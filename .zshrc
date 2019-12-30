@@ -65,7 +65,6 @@ plugins=(
 	zsh-autosuggestions
 	tmux
 	npm
-	vscode
 )
 
 source $ZSH/oh-my-zsh.sh
