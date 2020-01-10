@@ -318,6 +318,14 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 
 
+" -----------------------------------------------
+" WakaTime 
+" -----------------------------------------------
+Plug 'wakatime/vim-wakatime'
+
+
+
+
 
 
 
