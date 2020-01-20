@@ -26,7 +26,7 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "husky": "4.0.4",
-    "lint-staged": "9.5.0",
+    "lint-staged": "10.0.1",
     "npm-check": "5.9.0",
     "prettier": "1.19.1"
   },
