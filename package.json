@@ -8,7 +8,6 @@
   ],
   "author": "fengshangwuqi <fengshangwuqi@gmail.com>",
   "scripts": {
-    "check": "npm-check -u -E",
     "format": "npx prettier --write '**/*.{json,md}'"
   },
   "husky": {
@@ -27,7 +26,6 @@
     "@commitlint/config-conventional": "8.3.4",
     "husky": "4.0.4",
     "lint-staged": "9.5.0",
-    "npm-check": "5.9.0",
     "prettier": "1.19.1"
   },
   "license": "MIT"
