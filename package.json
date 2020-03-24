@@ -8,25 +8,21 @@
   ],
   "author": "fengshangwuqi <fengshangwuqi@gmail.com>",
   "scripts": {
-    "format": "npx prettier --write '**/*.{json,md}'"
+    "format": "yarn prettier --write '**/*.{json,md}'"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "husky": {
     "hooks": {
+      "pre-commit": "pretty-quick --staged",
       "commit-msg": "npx commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "lint-staged": {
-    "**/*.{json,md}": [
-      "npx prettier --write",
-      "git add"
-    ]
-  },
   "devDependencies": {
-    "@commitlint/cli": "8.3.5",
-    "@commitlint/config-conventional": "8.3.4",
-    "husky": "4.0.4",
-    "lint-staged": "9.5.0",
-    "prettier": "1.19.1"
+    "@fengshangwuqi/dev-deps": "1.0.0"
   },
   "license": "MIT"
 }
