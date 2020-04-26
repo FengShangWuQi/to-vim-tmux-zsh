@@ -46,6 +46,8 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+hi Normal  ctermfg=252 ctermbg=none
+
 
 
 
