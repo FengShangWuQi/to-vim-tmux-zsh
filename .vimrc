@@ -29,8 +29,9 @@ set ruler
 " 设置缩进
 set cindent
 
-set tabstop=2
 set shiftwidth=2
+set tabstop=2
+set expandtab
 
 " 突出显示当前行
 set cursorline
@@ -286,7 +287,7 @@ Plug 'mxw/vim-jsx'
 
 
 " -----------------------------------------------
-" Prettier
+" rettier
 " -----------------------------------------------
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
