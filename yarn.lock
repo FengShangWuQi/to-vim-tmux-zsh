@@ -160,20 +160,20 @@
   dependencies:
     find-up "^4.0.0"
 
-"@fengshangwuqi/dev-deps@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npm.taobao.org/@fengshangwuqi/dev-deps/download/@fengshangwuqi/dev-deps-1.0.0.tgz#6d905491732862354b273bb7bca01e6f78f5069f"
-  integrity sha1-bZBUkXMoYjVLJzu3vKAeb3j1Bp8=
+"@fengshangwuqi/dev-deps@1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@fengshangwuqi/dev-deps/-/dev-deps-1.0.4.tgz#13a034ce934bc615fc269b33cd21eb3c11287038"
+  integrity sha512-aFZ+a6Z3WPnP2goYPhtJTvrVXBNSOHTGlccfD3jpYOurmAtL3RafqiVDe0oW7l5AbHRXjJBDwKhbz2digkP+Fw==
   dependencies:
     "@commitlint/cli" "8.3.5"
     "@commitlint/config-conventional" "8.3.4"
-    "@types/prettier" "1.19.1"
+    "@types/prettier" "2.0.0"
     husky "4.2.3"
-    lint-staged "10.0.9"
-    prettier "2.0.2"
+    lint-staged "10.1.2"
+    prettier "2.0.3"
     pretty-quick "2.0.1"
     rimraf "3.0.2"
-    ts-node "8.8.1"
+    ts-node "8.8.2"
     typescript "3.8.3"
 
 "@marionebl/sander@^0.6.0":
@@ -207,10 +207,10 @@
   resolved "https://registry.npm.taobao.org/@types/parse-json/download/@types/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=
 
-"@types/prettier@1.19.1":
-  version "1.19.1"
-  resolved "https://registry.npm.taobao.org/@types/prettier/download/@types/prettier-1.19.1.tgz#33509849f8e679e4add158959fdb086440e9553f"
-  integrity sha1-M1CYSfjmeeSt0ViVn9sIZEDpVT8=
+"@types/prettier@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.0.0.tgz#dc85454b953178cc6043df5208b9e949b54a3bc4"
+  integrity sha512-/rM+sWiuOZ5dvuVzV37sUuklsbg+JPOP8d+nNFlo2ZtfpzPiPvh1/gc8liWOLBqe+sR+ZM7guPaIcTt6UZTo7Q==
 
 JSONStream@^1.0.4:
   version "1.3.5"
@@ -965,10 +965,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.npm.taobao.org/lines-and-columns/download/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-staged@10.0.9:
-  version "10.0.9"
-  resolved "https://registry.npm.taobao.org/lint-staged/download/lint-staged-10.0.9.tgz?cache=0&sync_timestamp=1585026158027&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flint-staged%2Fdownload%2Flint-staged-10.0.9.tgz#185aabb2432e9467c84add306c990f1c20da3cdb"
-  integrity sha1-GFqrskMulGfISt0wbJkPHCDaPNs=
+lint-staged@10.1.2:
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-10.1.2.tgz#beaefc58037ea9e02fe7639cb323d584312a7957"
+  integrity sha512-Vtbe8rhWbJxPNlnXk6jczRh6wvAVjGg+VhELAIjLakOjTACdB4qJOD4W2R8oUXLRCqL1t9WMUsXbSlVK34A8Lg==
   dependencies:
     chalk "^3.0.0"
     commander "^4.0.1"
@@ -1409,10 +1409,10 @@ please-upgrade-node@^3.2.0:
   dependencies:
     semver-compare "^1.0.0"
 
-prettier@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.npm.taobao.org/prettier/download/prettier-2.0.2.tgz?cache=0&sync_timestamp=1585003173514&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fprettier%2Fdownload%2Fprettier-2.0.2.tgz#1ba8f3eb92231e769b7fcd7cb73ae1b6b74ade08"
-  integrity sha1-G6jz65IjHnabf818tzrhtrdK3gg=
+prettier@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.0.3.tgz#9a06f0e94a51420e78b6925568b5bec72afe41ea"
+  integrity sha512-5qpBDBHO9fpE0zruKiTZm8Gxmz7kknO+WlQR/ivV+RMwgDw/WjOgmxLDn66MPrxq/WZPx/EgEZzh87xJO5E6Fw==
 
 pretty-quick@2.0.1:
   version "2.0.1"
@@ -1817,10 +1817,10 @@ trim-off-newlines@^1.0.0:
   resolved "https://registry.npm.taobao.org/trim-off-newlines/download/trim-off-newlines-1.0.1.tgz#9f9ba9d9efa8764c387698bcbfeb2c848f11adb3"
   integrity sha1-n5up2e+odkw4dpi8v+sshI8RrbM=
 
-ts-node@8.8.1:
-  version "8.8.1"
-  resolved "https://registry.npm.taobao.org/ts-node/download/ts-node-8.8.1.tgz#7c4d3e9ed33aa703b64b28d7f9d194768be5064d"
-  integrity sha1-fE0+ntM6pwO2SyjX+dGUdovlBk0=
+ts-node@8.8.2:
+  version "8.8.2"
+  resolved "https://registry.yarnpkg.com/ts-node/-/ts-node-8.8.2.tgz#0b39e690bee39ea5111513a9d2bcdc0bc121755f"
+  integrity sha512-duVj6BpSpUpD/oM4MfhO98ozgkp3Gt9qIp3jGxwU2DFvl/3IRaEAvbLa8G60uS7C77457e/m5TMowjedeRxI1Q==
   dependencies:
     arg "^4.1.0"
     diff "^4.0.1"
