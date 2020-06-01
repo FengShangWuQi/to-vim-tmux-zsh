@@ -20,7 +20,7 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 
 ## 截图
 
-![screenshot](./images/screenshot.png)
+![screenshot](./images/screenshot.jpg)
 
 ### vim
 
