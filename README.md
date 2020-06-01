@@ -26,16 +26,10 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 
 彪悍的编译器，不需要解释
 
-![vim](./images/vim.png)
-
 ### tmux
 
 一个窗口，帮你搞定所有
 
-![tmux](./images/tmux.jpg)
-
 ### zsh
 
 非常棒的 shell，没理由再使用 bash
-
-![zsh](./images/zsh.jpg)
