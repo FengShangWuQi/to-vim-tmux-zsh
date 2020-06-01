@@ -20,6 +20,8 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 
 ## 截图
 
+![screenshot](./images/screenshot.png)
+
 ### vim
 
 彪悍的编译器，不需要解释
