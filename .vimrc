@@ -287,7 +287,7 @@ Plug 'mxw/vim-jsx'
 
 
 " -----------------------------------------------
-" rettier
+" Prettier
 " -----------------------------------------------
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
