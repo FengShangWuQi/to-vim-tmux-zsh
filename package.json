@@ -22,7 +22,7 @@
     }
   },
   "devDependencies": {
-    "@fengshangwuqi/dev-deps": "1.0.5"
+    "@fengshangwuqi/dev-deps": "1.0.11"
   },
   "license": "MIT"
 }
