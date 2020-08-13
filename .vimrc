@@ -17,6 +17,8 @@ set is
 
 
 
+
+
 "==========================================
 "  显示设置
 "==========================================
@@ -53,6 +55,7 @@ hi Normal  ctermfg=252 ctermbg=none
 
 
 
+
 "==========================================
 " vim-plug
 "==========================================
@@ -62,9 +65,9 @@ call 	plug#begin('~/.vim/plugged')
 " -----------------------------------------------
 " 树形目录
 " -----------------------------------------------
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'                            " https://github.com/preservim/nerdtree
+Plug 'jistr/vim-nerdtree-tabs'                        " https://github.com/jistr/vim-nerdtree-tabs
+Plug 'Xuyuanp/nerdtree-git-plugin'                    " https://github.com/Xuyuanp/nerdtree-git-plugin
 
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -88,6 +91,18 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+" t 在标签页中打开
+" r 刷新光标所在的目录
+" R 刷新当前根路径
+" I 显示隐藏文件
+" m 显示文件操作菜单
+" C 将根路径设置为光标所在的目录
+" u 设置上级目录为根路径
+" ctrl + w + w 光标自动在左右侧窗口切换
+" gT 前一个 tab
+" gt 后一个 tab
+
+
 
 
 
@@ -95,8 +110,9 @@ let g:NERDTreeIndicatorMapCustom = {
 " -----------------------------------------------
 " 代码，引号，路径自动补全
 " -----------------------------------------------
-Plug 'Valloric/YouCompleteMe'
-Plug 'Raimondi/delimitMate'
+Plug 'Valloric/YouCompleteMe'                         " https://github.com/ycm-core/YouCompleteMe
+Plug 'Raimondi/delimitMate'                           " https://github.com/Raimondi/delimitMate
+
 
 
 
@@ -105,8 +121,8 @@ Plug 'Raimondi/delimitMate'
 " -----------------------------------------------
 " 语法高亮，检查
 " -----------------------------------------------
-Plug 'sheerun/vim-polyglot'
-Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'                           " https://github.com/sheerun/vim-polyglot
+Plug 'w0rp/ale'                                       " https://github.com/w0rp/ale
 
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
@@ -124,8 +140,8 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " -----------------------------------------------
 " 文件，代码搜索，打开最近打开的文件
 " -----------------------------------------------
-Plug 'mileszs/ack.vim'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'                                " https://github.com/mileszs/ack.vim
+Plug 'ctrlpvim/ctrlp.vim'                             " https://github.com/ctrlpvim/ctrlp.vim
 
 let g:ackprg = "ag --vimgrep"
 cnoreabbrev Ack Ack!
@@ -139,6 +155,10 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 
+" <c-r>: 切换匹配模式
+" <c-t>：在新的 tab 中打开
+
+
 
 
 
@@ -146,7 +166,7 @@ let g:ctrlp_custom_ignore = {
 " -----------------------------------------------
 " 加强版状态条
 " -----------------------------------------------
-Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'                         " https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
       \ 'colorscheme': 'powerline',
@@ -166,10 +186,11 @@ let g:lightline = {
 
 
 
+
 " -----------------------------------------------
 " 代码注释
 " -----------------------------------------------
-Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'                       " https://github.com/preservim/nerdcommenter
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
@@ -181,6 +202,13 @@ let g:NERDCustomDelimiters = {
 let g:NERDAltDelims_javascript = 1
 let g:NERDDefaultNesting = 1
 
+" default leader key is '\'
+" <leader>c<space> 注释/取消注释
+" <leader>ca 切换　// 和 /* */
+" <leader>cs /* 块注释 */
+" <leader>cm 只用一组符号注释
+" <leader>cA 在行尾添加注释
+
 
 
 
@@ -191,11 +219,12 @@ let g:NERDDefaultNesting = 1
 " -----------------------------------------------
 set updatetime=100
 
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
+Plug 'airblade/vim-gitgutter'                         " https://github.com/airblade/vim-gitgutter
+Plug 'tpope/vim-fugitive'                             " https://github.com/tpope/vim-fugitive
+Plug 'tpope/vim-rhubarb'                              " https://github.com/tpope/vim-rhubarb
 
 let g:gitgutter_max_signs = 800
+
 
 
 
@@ -204,11 +233,9 @@ let g:gitgutter_max_signs = 800
 " -----------------------------------------------
 " Markdown
 " -----------------------------------------------
-Plug 'suan/vim-instant-markdown'
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'                              " https://github.com/junegunn/goyo.vim
 
-let g:instant_markdown_slow = 1
-let g:instant_markdown_autostart = 0
+
 
 
 
@@ -216,7 +243,7 @@ let g:instant_markdown_autostart = 0
 " -----------------------------------------------
 " Emmet
 " -----------------------------------------------
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'                                " https://github.com/mattn/emmet-vim
 
 let g:user_emmet_leader_key='<C-Z>'
 let g:user_emmet_settings = {
@@ -233,8 +260,8 @@ let g:user_emmet_settings = {
 " -----------------------------------------------
 " css3
 " -----------------------------------------------
-Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color'
+Plug 'hail2u/vim-css3-syntax'                          " https://github.com/hail2u/vim-css3-syntax
+Plug 'ap/vim-css-color'                                " https://github.com/ap/vim-css-color
 
 augroup VimCSS3Syntax
   autocmd!
@@ -250,7 +277,7 @@ augroup END
 " -----------------------------------------------
 " JavaScript
 " -----------------------------------------------
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'                          " https://github.com/pangloss/vim-javascript
 
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
@@ -274,12 +301,10 @@ set conceallevel=1
 
 
 
-
 " -----------------------------------------------
 " React
 " -----------------------------------------------
-Plug 'mxw/vim-jsx'
-
+Plug 'mxw/vim-jsx'                                        " https://github.com/mxw/vim-jsx
 
 
 
@@ -289,21 +314,13 @@ Plug 'mxw/vim-jsx'
 " -----------------------------------------------
 " Prettier
 " -----------------------------------------------
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }     " https://github.com/prettier/vim-prettier
 
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
-
-
-
-
-
-" -----------------------------------------------
-" 盘古之白
-" -----------------------------------------------
-Plug 'hotoo/pangu.vim'
-
+" :Prettier
+" :PrettierAsync
 
 
 
@@ -313,19 +330,8 @@ Plug 'hotoo/pangu.vim'
 " -----------------------------------------------
 " TypeScript 
 " -----------------------------------------------
-Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
-
-
-
-
-
-
-" -----------------------------------------------
-" WakaTime 
-" -----------------------------------------------
-Plug 'wakatime/vim-wakatime'
-
+Plug 'leafgarland/typescript-vim'                         " https://github.com/leafgarland/typescript-vim
+Plug 'HerringtonDarkholme/yats.vim'                       " https://github.com/HerringtonDarkholme/yats.vim
 
 
 
