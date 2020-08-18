@@ -78,18 +78,18 @@ let NERDTreeShowHidden = 1
 let g:nerdtree_tabs_open_on_console_startup = 1
 let g:nerdtree_tabs_focus_on_files = 1
 
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
 
 " t 在标签页中打开
 " r 刷新光标所在的目录
@@ -333,6 +333,15 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 Plug 'leafgarland/typescript-vim'                         " https://github.com/leafgarland/typescript-vim
 Plug 'HerringtonDarkholme/yats.vim'                       " https://github.com/HerringtonDarkholme/yats.vim
 
+
+
+
+
+
+" -----------------------------------------------
+" Wakatime 
+" -----------------------------------------------
+Plug 'wakatime/vim-wakatime'                              " https://github.com/wakatime/vim-wakatime 
 
 
 
