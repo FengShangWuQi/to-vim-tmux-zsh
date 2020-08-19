@@ -11,6 +11,7 @@ $ git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git
 # 建立相关配置文件的软链接，方便直接更新，注意使用绝对路径
 $ ln -s ~/Documents/to-vim-tmux-zsh/.vimrc ~/.vimrc
 $ ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
+$ ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf.local ~/.tmux.conf.local
 $ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 ```
 
