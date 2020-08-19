@@ -33,7 +33,7 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 
 ## 截图
 
-![screenshot](./images/screenshot.jpg)
+![screenshot](./images/screenshot.png)
 
 ### vim
 
