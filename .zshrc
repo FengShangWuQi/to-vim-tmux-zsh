@@ -87,7 +87,7 @@ plugins=(
 	# ga        // git add
 	# gc!       // git commit -v --amend
 	# gcmsg     // git commit -m
-	# gup       // git pull --rebase
+	# ggu       // git pull --rebase origin $(current_branch)
 	# ggp       // git push origin $(current_branch)
 	# glo       // git log --oneline --decorate
 
