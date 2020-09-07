@@ -3,12 +3,28 @@
 "==========================================
 " 基本设置
 "==========================================
-" 取消备份
-set nobackup
-set noswapfile
+" 编码
+set enc=utf-8
 
-" 文件编码
-set encoding=utf-8
+" 不需要和 vi 兼容
+set nocompatible
+
+" 不产生备份，在重新打开一个文件时，仍然能够撤销之前的编辑（自动创建 undodir 目录）
+set nobackup
+set undodir=~/.vim/undodir
+
+if !isdirectory(&undodir)
+  call mkdir(&undodir, 'p', 0700)
+endif
+
+" 鼠标
+if has('mouse')
+  if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
+    set mouse=a
+  else
+    set mouse=nvi
+  endif
+endif
 
 " 查找
 set ic
