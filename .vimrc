@@ -9,12 +9,14 @@ set enc=utf-8
 " 不需要和 vi 兼容
 set nocompatible
 
-" 不产生备份，在重新打开一个文件时，仍然能够撤销之前的编辑（自动创建 undodir 目录）
+" 不产生备份，在重新打开一个文件时，仍然能够撤销之前的编辑
 set nobackup
-set undodir=~/.vim/undodir
-
-if !isdirectory(&undodir)
-  call mkdir(&undodir, 'p', 0700)
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.vim/undodir
+  if !isdirectory(&undodir)
+    call mkdir(&undodir, 'p', 0700)
+  endif
 endif
 
 " 鼠标
@@ -25,6 +27,32 @@ if has('mouse')
     set mouse=nvi
   endif
 endif
+
+" 中文
+set fileencodings=ucs-bom,utf-8,gb18030,latin1
+
+set scrolloff=1
+
+" 设置文本菜单
+if has('gui_running')
+  let do_syntax_sel_menu = 1
+  let do_no_lazyload_menus = 1
+endif
+
+if !has('gui_running')
+  if has('wildmenu')
+    set wildmenu
+    set cpoptions-=<
+    set wildcharm=<C-Z>
+    nnoremap <F10>      :emenu <C-Z>
+    inoremap <F10> <C-O>:emenu <C-Z>
+  endif
+endif
+
+
+" 停止搜索高亮的键映射
+nnoremap <silent> <F2>      :nohlsearch<CR>
+inoremap <silent> <F2> <C-O>:nohlsearch<CR>
 
 " 查找
 set ic
@@ -64,7 +92,7 @@ set nofoldenable
 " 主题
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme solarized 
 
 hi Normal  ctermfg=252 ctermbg=none
 
@@ -125,10 +153,48 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 
 
 " -----------------------------------------------
+" tags 
+" -----------------------------------------------
+Plug 'majutsushi/tagbar'                         " https://github.com/majutsushi/tagbar 
+
+nnoremap <F9>      :TagbarToggle<CR>
+inoremap <F9> <C-O>:TagbarToggle<CR>
+
+let g:tagbar_type_typescript = {                                                  
+  \ 'ctagsbin' : 'tstags',                                                        
+  \ 'ctagsargs' : '-f-',                                                           
+  \ 'kinds': [                                                                     
+    \ 'e:enums:0:1',                                                               
+    \ 'f:function:0:1',                                                            
+    \ 't:typealias:0:1',                                                           
+    \ 'M:Module:0:1',                                                              
+    \ 'I:import:0:1',                                                              
+    \ 'i:interface:0:1',                                                           
+    \ 'C:class:0:1',                                                               
+    \ 'm:method:0:1',                                                              
+    \ 'p:property:0:1',                                                            
+    \ 'v:variable:0:1',                                                            
+    \ 'c:const:0:1',                                                              
+  \ ],                                                                            
+  \ 'sort' : 0                                                                    
+\ }                                                                               
+
+
+
+
+
+
+" -----------------------------------------------
 " 代码，引号，路径自动补全
 " -----------------------------------------------
 Plug 'Valloric/YouCompleteMe'                         " https://github.com/ycm-core/YouCompleteMe
 Plug 'Raimondi/delimitMate'                           " https://github.com/Raimondi/delimitMate
+
+nnoremap <Leader>fi :YcmCompleter FixIt<CR>
+nnoremap <Leader>gt :YcmCompleter GoTo<CR>
+nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>gh :YcmCompleter GoToDeclaration<CR>
+nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
 
 
 
