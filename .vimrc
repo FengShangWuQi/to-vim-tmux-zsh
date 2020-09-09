@@ -6,25 +6,14 @@
 " 编码
 set enc=utf-8
 
-" 不需要和 vi 兼容
-set nocompatible
-
 " 不产生备份，在重新打开一个文件时，仍然能够撤销之前的编辑
 set nobackup
+
 if has('persistent_undo')
   set undofile
   set undodir=~/.vim/undodir
   if !isdirectory(&undodir)
     call mkdir(&undodir, 'p', 0700)
-  endif
-endif
-
-" 鼠标
-if has('mouse')
-  if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
-    set mouse=a
-  else
-    set mouse=nvi
   endif
 endif
 
@@ -49,15 +38,9 @@ if !has('gui_running')
   endif
 endif
 
-
 " 停止搜索高亮的键映射
 nnoremap <silent> <F2>      :nohlsearch<CR>
 inoremap <silent> <F2> <C-O>:nohlsearch<CR>
-
-" 查找
-set ic
-set hls
-set is
 
 
 
@@ -70,31 +53,22 @@ set is
 " 显示行号
 set number
 
-" 显示光标当前位置
-set ruler
-
 " 设置缩进
-set cindent
-
 set shiftwidth=2
 set tabstop=2
-set expandtab
 
 " 突出显示当前行
 set cursorline
-
-" 左下角显示当前 vim 模式
-set showmode
 
 " 启动 vim 时关闭折叠代码
 set nofoldenable
 
 " 主题
 syntax enable
-set background=dark
 colorscheme solarized 
 
-hi Normal  ctermfg=252 ctermbg=none
+" 背景透明
+hi Normal ctermfg=252 ctermbg=none
 
 
 
