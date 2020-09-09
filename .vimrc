@@ -8,6 +8,7 @@ set enc=utf-8
 
 " 不产生备份，在重新打开一个文件时，仍然能够撤销之前的编辑
 set nobackup
+set noswapfile
 
 if has('persistent_undo')
   set undofile
@@ -19,8 +20,6 @@ endif
 
 " 中文
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
-
-set scrolloff=1
 
 " 设置文本菜单
 if has('gui_running')
@@ -38,9 +37,15 @@ if !has('gui_running')
   endif
 endif
 
-" 停止搜索高亮的键映射
+" 查找 
+set ignorecase
+set smartcase
+set hlsearch
+
 nnoremap <silent> <F2>      :nohlsearch<CR>
 inoremap <silent> <F2> <C-O>:nohlsearch<CR>
+
+set scrolloff=1
 
 
 
@@ -65,7 +70,8 @@ set nofoldenable
 
 " 主题
 syntax enable
-colorscheme solarized 
+colorscheme one 
+set background=dark
 
 " 背景透明
 hi Normal ctermfg=252 ctermbg=none
@@ -87,28 +93,14 @@ call 	plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'                            " https://github.com/preservim/nerdtree
 Plug 'jistr/vim-nerdtree-tabs'                        " https://github.com/jistr/vim-nerdtree-tabs
 Plug 'Xuyuanp/nerdtree-git-plugin'                    " https://github.com/Xuyuanp/nerdtree-git-plugin
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-n> :NERDTreeToggle<CR>
+
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
 
 let g:nerdtree_tabs_open_on_console_startup = 1
-let g:nerdtree_tabs_focus_on_files = 1
-
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
 
 " t 在标签页中打开
 " r 刷新光标所在的目录
@@ -165,10 +157,7 @@ Plug 'Valloric/YouCompleteMe'                         " https://github.com/ycm-c
 Plug 'Raimondi/delimitMate'                           " https://github.com/Raimondi/delimitMate
 
 nnoremap <Leader>fi :YcmCompleter FixIt<CR>
-nnoremap <Leader>gt :YcmCompleter GoTo<CR>
 nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
-nnoremap <Leader>gh :YcmCompleter GoToDeclaration<CR>
-nnoremap <Leader>gr :YcmCompleter GoToReferences<CR>
 
 
 
@@ -200,17 +189,10 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 Plug 'mileszs/ack.vim'                                " https://github.com/mileszs/ack.vim
 Plug 'ctrlpvim/ctrlp.vim'                             " https://github.com/ctrlpvim/ctrlp.vim
 
-let g:ackprg = "ag --vimgrep"
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](node_modules|DS_Store|dist|build|coverage)|(\.(git|hg|svn)$)',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " <c-r>: 切换匹配模式
 " <c-t>：在新的 tab 中打开
@@ -281,6 +263,12 @@ Plug 'tpope/vim-fugitive'                             " https://github.com/tpope
 Plug 'tpope/vim-rhubarb'                              " https://github.com/tpope/vim-rhubarb
 
 let g:gitgutter_max_signs = 800
+
+" jump to next hunk: ]c
+" jump to previous hunk: [c
+
+" :Gvdiffsplit
+" :GBrowse
 
 
 
