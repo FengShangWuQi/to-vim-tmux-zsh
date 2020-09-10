@@ -13,7 +13,7 @@ $ git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git
 - vim 主题；
 - tmux 插件管理 tpm；
 - oh-my-zsh；
-- powerline-fonts；
+- nerd-fonts；
 
 # 建立相关配置文件的软链接，方便直接更新
 
@@ -26,7 +26,6 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [tpm](https://github.com/tmux-plugins/tpm)
 - [oh-my-zsh](https://ohmyz.sh/)
-- [powerline-fonts](https://github.com/powerline/fonts)
 
 ## 截图
 
