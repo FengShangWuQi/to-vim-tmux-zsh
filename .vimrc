@@ -6,6 +6,9 @@
 " 编码
 set enc=utf-8
 
+" 不和 vi 兼容
+set nocompatible
+
 " 不产生备份，在重新打开一个文件时，仍然能够撤销之前的编辑
 set nobackup
 set noswapfile
@@ -41,6 +44,7 @@ endif
 set ignorecase
 set smartcase
 set hlsearch
+set incsearch
 
 nnoremap <silent> <F2>      :nohlsearch<CR>
 inoremap <silent> <F2> <C-O>:nohlsearch<CR>
@@ -93,7 +97,8 @@ call 	plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'                            " https://github.com/preservim/nerdtree
 Plug 'jistr/vim-nerdtree-tabs'                        " https://github.com/jistr/vim-nerdtree-tabs
 Plug 'Xuyuanp/nerdtree-git-plugin'                    " https://github.com/Xuyuanp/nerdtree-git-plugin
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'                         " https://github.com/ryanoasis/vim-devicons
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -119,7 +124,7 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 
 
 " -----------------------------------------------
-" tags 
+" 标签 
 " -----------------------------------------------
 Plug 'majutsushi/tagbar'                         " https://github.com/majutsushi/tagbar 
 
@@ -143,7 +148,7 @@ let g:tagbar_type_typescript = {
     \ 'c:const:0:1',                                                              
   \ ],                                                                            
   \ 'sort' : 0                                                                    
-\ }                                                                               
+\ }
 
 
 
@@ -151,7 +156,7 @@ let g:tagbar_type_typescript = {
 
 
 " -----------------------------------------------
-" 代码，引号，路径自动补全
+" 自动补全
 " -----------------------------------------------
 Plug 'Valloric/YouCompleteMe'                         " https://github.com/ycm-core/YouCompleteMe
 Plug 'Raimondi/delimitMate'                           " https://github.com/Raimondi/delimitMate
@@ -171,7 +176,6 @@ Plug 'sheerun/vim-polyglot'                           " https://github.com/sheer
 Plug 'w0rp/ale'                                       " https://github.com/w0rp/ale
 
 let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '▶'
@@ -184,7 +188,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 
 " -----------------------------------------------
-" 文件，代码搜索，打开最近打开的文件
+" 全局搜索，快速打开文件
 " -----------------------------------------------
 Plug 'mileszs/ack.vim'                                " https://github.com/mileszs/ack.vim
 Plug 'ctrlpvim/ctrlp.vim'                             " https://github.com/ctrlpvim/ctrlp.vim
@@ -203,43 +207,29 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 
 " -----------------------------------------------
-" 加强版状态条
+" 状态条
 " -----------------------------------------------
-Plug 'itchyny/lightline.vim'                         " https://github.com/itchyny/lightline.vim
+Plug 'vim-airline/vim-airline'                        " https://github.com/vim-airline/vim-airline
+Plug 'vim-airline/vim-airline-themes'                 " https://github.com/vim-airline/vim-airline-themes
 
-let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+let g:airline_theme='onedark'
+let g:airline_powerline_fonts = 1
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#ale#enabled = 1
 
 
 
 
 
 " -----------------------------------------------
-" 代码注释
+" 注释
 " -----------------------------------------------
 Plug 'scrooloose/nerdcommenter'                       " https://github.com/preservim/nerdcommenter
 
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
-let g:NERDCustomDelimiters = {
-			\ 'javascript': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
-			\ 'less': { 'left': '/*', 'right': '*/' }
-		\ }
-
-let g:NERDAltDelims_javascript = 1
-let g:NERDDefaultNesting = 1
 
 " default leader key is '\'
 " <leader>c<space> 注释/取消注释
@@ -256,13 +246,11 @@ let g:NERDDefaultNesting = 1
 " -----------------------------------------------
 " git
 " -----------------------------------------------
-set updatetime=100
-
 Plug 'airblade/vim-gitgutter'                         " https://github.com/airblade/vim-gitgutter
 Plug 'tpope/vim-fugitive'                             " https://github.com/tpope/vim-fugitive
 Plug 'tpope/vim-rhubarb'                              " https://github.com/tpope/vim-rhubarb
 
-let g:gitgutter_max_signs = 800
+set updatetime=100
 
 " jump to next hunk: ]c
 " jump to previous hunk: [c
@@ -291,65 +279,8 @@ Plug 'junegunn/goyo.vim'                              " https://github.com/juneg
 Plug 'mattn/emmet-vim'                                " https://github.com/mattn/emmet-vim
 
 let g:user_emmet_leader_key='<C-Z>'
-let g:user_emmet_settings = {
- 		\ 'javascript.jsx' : {
-    		\ 'extends' : 'jsx',
-    	\ },
- 		\ }
 
-
-
-
-
-
-" -----------------------------------------------
-" css3
-" -----------------------------------------------
-Plug 'hail2u/vim-css3-syntax'                          " https://github.com/hail2u/vim-css3-syntax
-Plug 'ap/vim-css-color'                                " https://github.com/ap/vim-css-color
-
-augroup VimCSS3Syntax
-  autocmd!
-
-  autocmd FileType css setlocal iskeyword+=-
-augroup END
-
-
-
-
-
-
-" -----------------------------------------------
-" JavaScript
-" -----------------------------------------------
-Plug 'pangloss/vim-javascript'                          " https://github.com/pangloss/vim-javascript
-
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
-let g:javascript_conceal_function             = "ƒ"
-let g:javascript_conceal_null                 = "ø"
-let g:javascript_conceal_this                 = "@"
-let g:javascript_conceal_return               = "⇚"
-let g:javascript_conceal_undefined            = "¿"
-let g:javascript_conceal_NaN                  = "ℕ"
-let g:javascript_conceal_prototype            = "¶"
-let g:javascript_conceal_static               = "•"
-let g:javascript_conceal_super                = "Ω"
-let g:javascript_conceal_arrow_function       = "⇒"
-let g:javascript_conceal_noarg_arrow_function = "🞅"
-let g:javascript_conceal_underscore_arrow_function = "🞅"
-set conceallevel=1
-
-
-
-
-
-
-" -----------------------------------------------
-" React
-" -----------------------------------------------
-Plug 'mxw/vim-jsx'                                        " https://github.com/mxw/vim-jsx
+" <C-Z>,
 
 
 
@@ -361,22 +292,9 @@ Plug 'mxw/vim-jsx'                                        " https://github.com/m
 " -----------------------------------------------
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }     " https://github.com/prettier/vim-prettier
 
-let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
-" :Prettier
 " :PrettierAsync
-
-
-
-
-
-
-" -----------------------------------------------
-" TypeScript 
-" -----------------------------------------------
-Plug 'leafgarland/typescript-vim'                         " https://github.com/leafgarland/typescript-vim
-Plug 'HerringtonDarkholme/yats.vim'                       " https://github.com/HerringtonDarkholme/yats.vim
 
 
 
@@ -387,6 +305,7 @@ Plug 'HerringtonDarkholme/yats.vim'                       " https://github.com/H
 " Wakatime 
 " -----------------------------------------------
 Plug 'wakatime/vim-wakatime'                              " https://github.com/wakatime/vim-wakatime 
+
 
 
 
