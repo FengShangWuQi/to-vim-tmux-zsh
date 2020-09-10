@@ -20,7 +20,10 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"	# 删除 prompt_context
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history)
+POWERLEVEL9K_MODE='nerdfont-complete'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -81,7 +84,7 @@ export UPDATE_ZSH_DAYS=13
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git			# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
+	git					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
 	
 	# gst       // git status
 	# ga        // git add
@@ -91,7 +94,7 @@ plugins=(
 	# ggp       // git push origin $(current_branch)
 	# glo       // git log --oneline --decorate
 
-	npm			# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
+	npm					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
 
 	# npmO      // npm outdated
 	# npmL0     // npm ls --depth=0
@@ -100,17 +103,17 @@ plugins=(
 	# npmR      // npm run
 	# npmI      // npm install
 
-	tmux		# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/tmux/README.md
+	tmux				# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/tmux/README.md
 
 	# ta        // tmux attach -t
 	# tkss      // tmux kill-session -t
 	# ts        // tmux new-session -s
 	# tl        // tmux list-sessions
 
-	z			# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/z/README.md
+	z						# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/z/README.md
 
 	zsh-syntax-highlighting			# https://github.com/zsh-users/zsh-syntax-highlighting
-	zsh-autosuggestions				# https://github.com/zsh-users/zsh-autosuggestions
+	zsh-autosuggestions					# https://github.com/zsh-users/zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
