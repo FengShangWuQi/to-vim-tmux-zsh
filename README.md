@@ -14,7 +14,7 @@ $ git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git
 - tmux;
 - tmux 插件管理 tpm；
 - oh-my-zsh；
-- oh-my-zsh 主题 powerlevel9k;
+- oh-my-zsh 主题 powerlevel10k;
 - nerd-fonts；
 
 # 建立相关配置文件的软链接，方便直接更新
@@ -23,12 +23,13 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.vimrc ~/.vimrc
 $ ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
 $ ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf.local ~/.tmux.conf.local
 $ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
+$ ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
 ```
 
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [tpm](https://github.com/tmux-plugins/tpm)
 - [oh-my-zsh](https://ohmyz.sh/)
-- [powerlevel9k](https://github.com/Powerlevel9k/powerlevel9k)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
 ## 截图
 
