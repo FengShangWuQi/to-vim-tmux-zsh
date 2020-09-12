@@ -24,6 +24,17 @@ endif
 " 中文
 set fileencodings=ucs-bom,utf-8,gb18030,latin1
 
+" 鼠标支持
+if has('mouse')
+  if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
+    set mouse=a
+  else
+    set mouse=nvi
+  endif
+endif
+
+set clipboard=unnamed
+
 " 设置文本菜单
 if has('gui_running')
   let do_syntax_sel_menu = 1
