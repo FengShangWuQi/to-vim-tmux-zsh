@@ -301,7 +301,8 @@ let g:gitgutter_max_signs = -1
 " -----------------------------------------------
 " Markdown
 " -----------------------------------------------
-Plug 'junegunn/goyo.vim'                              " https://github.com/junegunn/goyo.vim
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }      " https://github.com/iamcco/markdown-preview.nvim
+Plug 'junegunn/goyo.vim'                                                      " https://github.com/junegunn/goyo.vim
 
 
 
