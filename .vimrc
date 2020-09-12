@@ -110,7 +110,6 @@ Plug 'jistr/vim-nerdtree-tabs'                        " https://github.com/jistr
 Plug 'Xuyuanp/nerdtree-git-plugin'                    " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'ryanoasis/vim-devicons'                         " https://github.com/ryanoasis/vim-devicons
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
-Plug 'mbbill/undotree'                                " https://github.com/mbbill/undotree
 Plug 'tpope/vim-eunuch'                               " https://github.com/tpope/vim-eunuch
 
 map <C-n> :NERDTreeToggle<CR>
@@ -119,8 +118,6 @@ let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
 
 let g:nerdtree_tabs_open_on_console_startup = 1
-
-nnoremap <F5> :UndotreeToggle<cr>
 
 " i 在新的水平分割的窗口中打开
 " s 在新的竖直分割的窗口中打开
