@@ -110,7 +110,8 @@ Plug 'jistr/vim-nerdtree-tabs'                        " https://github.com/jistr
 Plug 'Xuyuanp/nerdtree-git-plugin'                    " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'ryanoasis/vim-devicons'                         " https://github.com/ryanoasis/vim-devicons
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree'                                " https://github.com/mbbill/undotree
+Plug 'tpope/vim-eunuch'                               " https://github.com/tpope/vim-eunuch
 
 map <C-n> :NERDTreeToggle<CR>
 
