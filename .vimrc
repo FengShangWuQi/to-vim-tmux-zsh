@@ -9,7 +9,7 @@ set enc=utf-8
 " 不和 vi 兼容
 set nocompatible
 
-" 不产生备份，在重新打开一个文件时，仍然能够撤销之前的编辑
+" 备份和撤销文件 
 set nobackup
 set noswapfile
 
