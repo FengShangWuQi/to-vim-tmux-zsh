@@ -265,9 +265,13 @@ Plug 'tpope/vim-fugitive'                             " https://github.com/tpope
 Plug 'tpope/vim-rhubarb'                              " https://github.com/tpope/vim-rhubarb
 
 set updatetime=100
+let g:gitgutter_max_signs = -1
 
 " jump to next hunk: ]c
 " jump to previous hunk: [c
+" stage the hunk: <Leader>hs
+" undo the hunk: <Leader>hu
+" preview the hunk: <Leader>hp
 
 " :Gvdiffsplit
 " :GBrowse
