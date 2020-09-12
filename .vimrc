@@ -344,7 +344,7 @@ Plug 'wakatime/vim-wakatime'                              " https://github.com/w
 
 
 " -----------------------------------------------
-" else 
+" LargeFile 
 " -----------------------------------------------
 Plug 'vim-scripts/LargeFile'                              " https://github.com/vim-scripts/LargeFile
 
