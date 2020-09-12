@@ -257,7 +257,6 @@ Plug 'scrooloose/nerdcommenter'                       " https://github.com/prese
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
-" default leader key is '\'
 " <leader>c<space> 注释/取消注释
 " <leader>ca 切换　// 和 /* */
 " <leader>cs /* 块注释 */
