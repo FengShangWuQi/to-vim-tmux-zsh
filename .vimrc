@@ -284,8 +284,14 @@ let g:gitgutter_max_signs = -1
 " undo the hunk: <Leader>hu
 " preview the hunk: <Leader>hp
 
+" :G
 " :Gvdiffsplit
 " :GBrowse
+"
+" s: 加到暂存区中
+" u: 重置加入暂存区的修改
+" =: 切换 diff 显示
+" cc: 提交当前暂存区中的文件
 
 
 
