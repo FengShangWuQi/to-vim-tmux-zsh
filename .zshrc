@@ -156,3 +156,4 @@ export NVM_DIR="$HOME/.nvm"
 
 alias python="/usr/local/bin/python3"
 
+export FZF_DEFAULT_COMMAND="rg --files --smart-case --hidden --follow --sortr modified -g '!*.git'"

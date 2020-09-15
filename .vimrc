@@ -209,17 +209,16 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " -----------------------------------------------
 " 全局搜索，快速打开文件
 " -----------------------------------------------
-Plug 'mileszs/ack.vim'                                " https://github.com/mileszs/ack.vim
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }   " https://github.com/junegunn/fzf
+Plug 'junegunn/fzf.vim'                               " https://github.com/junegunn/fzf.vim
 Plug 'ctrlpvim/ctrlp.vim'                             " https://github.com/ctrlpvim/ctrlp.vim
-
-cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_regexp = 1
 
 " <c-r>: 切换匹配模式
 " <c-t>：在新的 tab 中打开
+" :Rg
 
 
 
