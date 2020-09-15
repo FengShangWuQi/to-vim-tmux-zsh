@@ -9,7 +9,7 @@ set enc=utf-8
 " 不和 vi 兼容
 set nocompatible
 
-" 备份和撤销文件 
+" 备份和撤销文件
 set nobackup
 set noswapfile
 
@@ -51,7 +51,7 @@ if !has('gui_running')
   endif
 endif
 
-" 查找 
+" 查找
 set ignorecase
 set smartcase
 set hlsearch
@@ -85,7 +85,7 @@ set nofoldenable
 
 " 主题
 syntax enable
-colorscheme one 
+colorscheme one
 set background=dark
 
 " 背景透明
@@ -100,7 +100,7 @@ hi Normal ctermfg=252 ctermbg=none
 " vim-plug
 "==========================================
 
-call 	plug#begin('~/.vim/plugged')                                                                     
+call 	plug#begin('~/.vim/plugged')
 
 " -----------------------------------------------
 " 树形目录
@@ -122,7 +122,7 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 " i 在新的水平分割的窗口中打开
 " s 在新的竖直分割的窗口中打开
 " t 在标签页中打开
-" go 预览文件 
+" go 预览文件
 " r 刷新光标所在的目录
 " R 刷新当前根路径
 " I 显示隐藏文件
@@ -131,11 +131,11 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 " u 设置上级目录为根路径
 " gT 前一个 tab
 " gt 后一个 tab
-" <C-W> 加方向键（h、j、k、l、<Left> 等）可以在窗口之间跳转 
-" <C-W> + w 跳转到下一个窗口 
-" <C-W> + s 和 :split 作用相同，把当前窗口横向一分为二 
-" <C-W> + v 和 :vsplit 作用相同，把当前窗口纵向一分为二  
-" <C-W> + o 或 :only 只保留当前窗口，关闭其他所有窗口 
+" <C-W> 加方向键（h、j、k、l、<Left> 等）可以在窗口之间跳转
+" <C-W> + w 跳转到下一个窗口
+" <C-W> + s 和 :split 作用相同，把当前窗口横向一分为二
+" <C-W> + v 和 :vsplit 作用相同，把当前窗口纵向一分为二
+" <C-W> + o 或 :only 只保留当前窗口，关闭其他所有窗口
 
 
 
@@ -143,30 +143,30 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 
 
 " -----------------------------------------------
-" 标签 
+" 标签
 " -----------------------------------------------
-Plug 'majutsushi/tagbar'                         " https://github.com/majutsushi/tagbar 
+Plug 'majutsushi/tagbar'                         " https://github.com/majutsushi/tagbar
 
 nnoremap <F9>      :TagbarToggle<CR>
 inoremap <F9> <C-O>:TagbarToggle<CR>
 
-let g:tagbar_type_typescript = {                                                  
-  \ 'ctagsbin' : 'tstags',                                                        
-  \ 'ctagsargs' : '-f-',                                                           
-  \ 'kinds': [                                                                     
-    \ 'e:enums:0:1',                                                               
-    \ 'f:function:0:1',                                                            
-    \ 't:typealias:0:1',                                                           
-    \ 'M:Module:0:1',                                                              
-    \ 'I:import:0:1',                                                              
-    \ 'i:interface:0:1',                                                           
-    \ 'C:class:0:1',                                                               
-    \ 'm:method:0:1',                                                              
-    \ 'p:property:0:1',                                                            
-    \ 'v:variable:0:1',                                                            
-    \ 'c:const:0:1',                                                              
-  \ ],                                                                            
-  \ 'sort' : 0                                                                    
+let g:tagbar_type_typescript = {
+  \ 'ctagsbin' : 'tstags',
+  \ 'ctagsargs' : '-f-',
+  \ 'kinds': [
+    \ 'e:enums:0:1',
+    \ 'f:function:0:1',
+    \ 't:typealias:0:1',
+    \ 'M:Module:0:1',
+    \ 'I:import:0:1',
+    \ 'i:interface:0:1',
+    \ 'C:class:0:1',
+    \ 'm:method:0:1',
+    \ 'p:property:0:1',
+    \ 'v:variable:0:1',
+    \ 'c:const:0:1',
+  \ ],
+  \ 'sort' : 0
 \ }
 
 
@@ -337,9 +337,21 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 
 " -----------------------------------------------
-" Wakatime 
+" Wakatime
 " -----------------------------------------------
-Plug 'wakatime/vim-wakatime'                              " https://github.com/wakatime/vim-wakatime 
+Plug 'wakatime/vim-wakatime'                              " https://github.com/wakatime/vim-wakatime
+
+
+
+
+
+
+" -----------------------------------------------
+" Whitespace
+" -----------------------------------------------
+Plug 'ntpeters/vim-better-whitespace'
+
+let g:better_whitespace_enabled=1
 
 
 
