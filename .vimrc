@@ -346,18 +346,6 @@ Plug 'wakatime/vim-wakatime'                              " https://github.com/w
 
 
 
-" -----------------------------------------------
-" LargeFile 
-" -----------------------------------------------
-Plug 'vim-scripts/LargeFile'                              " https://github.com/vim-scripts/LargeFile
-
-let g:LargeFile = 100
-
-
-
-
-
-
 call plug#end()
 
 " PlugInstall
