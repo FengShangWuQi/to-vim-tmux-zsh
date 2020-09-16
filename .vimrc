@@ -348,9 +348,11 @@ Plug 'wakatime/vim-wakatime'                              " https://github.com/w
 " -----------------------------------------------
 " Whitespace
 " -----------------------------------------------
-Plug 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'                     " https://github.com/ntpeters/vim-better-whitespace
 
 let g:better_whitespace_enabled=1
+
+" :StripWhitespace
 
 
 
