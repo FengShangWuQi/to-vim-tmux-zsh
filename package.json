@@ -8,7 +8,7 @@
   ],
   "author": "fengshangwuqi <fengshangwuqi@gmail.com>",
   "scripts": {
-    "format": "yarn prettier --write '**/*.{json,md}'"
+    "format": "yarn prettier --write .'"
   },
   "commitlint": {
     "extends": [
