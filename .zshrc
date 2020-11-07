@@ -96,10 +96,22 @@ plugins=(
 	# gst       // git status
 	# ga        // git add
 	# gc!       // git commit -v --amend
+	# gcn!			// git commit -v --no-edit --amend
 	# gcmsg     // git commit -m
 	# ggu       // git pull --rebase origin $(current_branch)
 	# ggp       // git push origin $(current_branch)
+	# ggf				// git push --force origin $(current_branch)
 	# glo       // git log --oneline --decorate
+	# gb				// git branch
+	# gba				// git branch -a
+	# gbD				// git branch -D
+	# gcb				// git checkout -b
+	# gco				// git checkout
+	# gcf				// git config --list
+	# gcp				// git cherry-pick
+	# grbc			// git rebase --continue
+	# gstl			// git stash list
+	# gstp			// git stash pop
 
 	npm					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
 
