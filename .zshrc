@@ -93,15 +93,15 @@ export UPDATE_ZSH_DAYS=13
 plugins=(
 	git					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
 
-	# gst       // git status
-	# ga        // git add
-	# gc!       // git commit -v --amend
+	# gst				// git status
+	# ga				// git add
+	# gc!				// git commit -v --amend
 	# gcn!			// git commit -v --no-edit --amend
-	# gcmsg     // git commit -m
-	# ggu       // git pull --rebase origin $(current_branch)
-	# ggp       // git push origin $(current_branch)
+	# gcmsg			// git commit -m
+	# ggu				// git pull --rebase origin $(current_branch)
+	# ggp				// git push origin $(current_branch)
 	# ggf				// git push --force origin $(current_branch)
-	# glo       // git log --oneline --decorate
+	# glo				// git log --oneline --decorate
 	# gb				// git branch
 	# gba				// git branch -a
 	# gbD				// git branch -D
@@ -118,11 +118,11 @@ plugins=(
 	# npmI			// npm init
 	# npmD			// npm i -D
 	# npmL			// npm list
-	# npmL0     // npm ls --depth=0
-	# npmst    	// npm start
-	# npmt      // npm test
-	# npmR      // npm run
-	# npmO      // npm outdated
+	# npmL0			// npm ls --depth=0
+	# npmst			// npm start
+	# npmt			// npm test
+	# npmR			// npm run
+	# npmO			// npm outdated
 	# npmV			// npm -v
 
 	yarn				# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/yarn/README.md
@@ -143,12 +143,12 @@ plugins=(
 
 	tmux				# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/tmux/README.md
 
-	# ta        // tmux attach -t
-	# tkss      // tmux kill-session -t
-	# ts        // tmux new-session -s
-	# tl        // tmux list-sessions
+	# ta        		// tmux attach -t
+	# tkss      		// tmux kill-session -t
+	# ts        		// tmux new-session -s
+	# tl        		// tmux list-sessions
 
-	z						# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/z/README.md
+	z					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/z/README.md
 
 	zsh-syntax-highlighting			# https://github.com/zsh-users/zsh-syntax-highlighting
 	zsh-autosuggestions					# https://github.com/zsh-users/zsh-autosuggestions
