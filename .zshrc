@@ -92,7 +92,7 @@ export UPDATE_ZSH_DAYS=13
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
-	
+
 	# gst       // git status
 	# ga        // git add
 	# gc!       // git commit -v --amend
@@ -103,12 +103,31 @@ plugins=(
 
 	npm					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
 
-	# npmO      // npm outdated
+	# npmI			// npm init
+	# npmD			// npm i -D
+	# npmL			// npm list
 	# npmL0     // npm ls --depth=0
 	# npmst    	// npm start
 	# npmt      // npm test
 	# npmR      // npm run
-	# npmI      // npm install
+	# npmO      // npm outdated
+	# npmV			// npm -v
+
+	yarn				# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/yarn/README.md
+
+	# y					// yarn
+	# ya				// yarn add
+	# yad				// yarn add --dev
+	# yrm				// yarn remove
+	# yb				// yarn build
+	# yi				// yarn init
+	# yln				// yarn lint
+	# yls				// yarn list
+	# yout			// yarn outdated
+	# yst				// yarn start
+	# yt				// yarn test
+	# yw				// yarn workspace
+	# yws				// yarn workspaces
 
 	tmux				# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/tmux/README.md
 
