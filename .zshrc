@@ -112,6 +112,7 @@ plugins=(
 	# grbc			// git rebase --continue
 	# gstl			// git stash list
 	# gstp			// git stash pop
+	# gra				// git remote add
 
 	npm					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
 
