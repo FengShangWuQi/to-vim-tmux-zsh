@@ -93,6 +93,7 @@ export UPDATE_ZSH_DAYS=13
 plugins=(
 	git					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
 
+  # gcl       // git clone --recurse-submodules
 	# gst				// git status
 	# ga				// git add
 	# gc!				// git commit -v --amend
