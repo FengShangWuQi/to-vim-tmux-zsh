@@ -10,5 +10,5 @@
       "automerge": true
     }
   ],
-  "baseBranches": ["main"]
+  "baseBranches": ["master"]
 }
