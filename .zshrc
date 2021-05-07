@@ -114,6 +114,7 @@ plugins=(
 	# gstl			// git stash list
 	# gstp			// git stash pop
 	# gra				// git remote add
+	# gd				// git diff
 
 	npm					# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
 
