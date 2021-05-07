@@ -8,6 +8,7 @@
   ],
   "author": "fengshangwuqi <fengshangwuqi@gmail.com>",
   "scripts": {
+    "prepare": "husky install",
     "format": "yarn prettier --write .'"
   },
   "commitlint": {
@@ -15,14 +16,8 @@
       "@commitlint/config-conventional"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged",
-      "commit-msg": "npx commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "devDependencies": {
-    "@fengshangwuqi/dev-deps": "1.0.24"
+    "@fengshangwuqi/dev-deps": "1.0.25"
   },
   "license": "MIT"
 }
