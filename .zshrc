@@ -99,6 +99,8 @@ plugins=(
 	# gc!				// git commit -v --amend
 	# gcn!			// git commit -v --no-edit --amend
 	# gcmsg			// git commit -m
+	# gl				// git pull
+	# ggl				// git pull origin $(current_branch)
 	# ggu				// git pull --rebase origin $(current_branch)
 	# ggp				// git push origin $(current_branch)
 	# ggf				// git push --force origin $(current_branch)
