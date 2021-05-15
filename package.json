@@ -9,15 +9,25 @@
   "author": "fengshangwuqi <fengshangwuqi@gmail.com>",
   "scripts": {
     "prepare": "husky install",
-    "format": "yarn prettier --write .'"
+    "format": "prettier --write ."
   },
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
     ]
   },
+  "prettier": {
+    "trailingComma": "all",
+    "jsxBracketSameLine": true,
+    "arrowParens": "avoid"
+  },
   "devDependencies": {
-    "@fengshangwuqi/dev-deps": "1.0.25"
+    "@commitlint/cli": "12.1.4",
+    "@commitlint/config-conventional": "12.1.4",
+    "husky": "6.0.0",
+    "lint-staged": "11.0.0",
+    "prettier": "2.3.0",
+    "pretty-quick": "3.1.0"
   },
   "license": "MIT"
 }
