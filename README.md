@@ -37,7 +37,7 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
 
 ## 截图
 
-![screenshot](./images/screenshot.jpg)
+![screenshot](./images/screenshot.png)
 
 ### vim
 
