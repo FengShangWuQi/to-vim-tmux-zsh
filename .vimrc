@@ -119,10 +119,11 @@ let NERDTreeShowHidden = 1
 
 let g:nerdtree_tabs_open_on_console_startup = 1
 
-" i 在新的水平分割的窗口中打开
-" s 在新的竖直分割的窗口中打开
-" t 在标签页中打开
-" go 预览文件
+" i open split
+" s open vsplit
+" t open in new tab
+" J go to last child
+" K go to first child
 " r 刷新光标所在的目录
 " R 刷新当前根路径
 " I 显示隐藏文件
@@ -131,11 +132,7 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 " u 设置上级目录为根路径
 " gT 前一个 tab
 " gt 后一个 tab
-" <C-W> 加方向键（h、j、k、l、<Left> 等）可以在窗口之间跳转
 " <C-W> + w 跳转到下一个窗口
-" <C-W> + s 和 :split 作用相同，把当前窗口横向一分为二
-" <C-W> + v 和 :vsplit 作用相同，把当前窗口纵向一分为二
-" <C-W> + o 或 :only 只保留当前窗口，关闭其他所有窗口
 
 
 
@@ -218,6 +215,7 @@ let g:ctrlp_regexp = 1
 
 " <c-r>: 切换匹配模式
 " <c-t>：在新的 tab 中打开
+" <c-v>、<c-x>：在新的 split 中打开
 " :Rg
 
 
