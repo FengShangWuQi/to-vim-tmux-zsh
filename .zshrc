@@ -193,3 +193,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 alias python="/usr/local/bin/python3"
 
 export FZF_DEFAULT_COMMAND="rg --files --smart-case --hidden --follow --sortr modified -g '!*.git'"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
