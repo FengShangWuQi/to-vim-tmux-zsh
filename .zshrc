@@ -38,8 +38,8 @@ zinit light-mode for \
 setopt promptsubst
 
 zinit wait lucid for \
-		OMZL::completion.zsh \
-		OMZL::clipboard.zsh \
+    OMZL::completion.zsh \
+    OMZL::clipboard.zsh
 
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
@@ -48,9 +48,6 @@ zinit wait lucid for \
     zsh-users/zsh-completions \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions
-
-zinit wait lucid for \
-	OMZP::tmux
 
 # git
 zinit wait lucid for \
