@@ -211,9 +211,9 @@ Plug 'ctrlpvim/ctrlp.vim'                             " https://github.com/ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_regexp = 1
 
-" <c-r>: 切换匹配模式
-" <c-t>：在新的 tab 中打开
-" <c-v>、<c-x>：在新的 split 中打开
+" <c-r>: switch to regexp mode.
+" <c-t>：open the selected entry in a new tab.
+" <c-v>、<c-x>：open the selected entry in a new split.
 
 
 
@@ -228,13 +228,14 @@ Plug 'vim-airline/vim-airline-themes'                 " https://github.com/vim-a
 
 let g:airline_theme='onedark'
 let g:airline_powerline_fonts = 1
-
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#nerdtree_statusline = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline_section_c = ''
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#nerdtree_statusline = 0
+let g:airline_extensions = ['tabline', 'hunks', 'branch', "ctrlp"]
+let g:airline_highlighting_cache = 1
 
 
 
@@ -248,11 +249,11 @@ Plug 'scrooloose/nerdcommenter'                       " https://github.com/prese
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
-" <leader>c<space> 注释/取消注释
-" <leader>ca 切换　// 和 /* */
-" <leader>cs /* 块注释 */
-" <leader>cm 只用一组符号注释
-" <leader>cA 在行尾添加注释
+" <leader>c<space>: toggles the comment state of the selected line(s).
+" <leader>ca: Switches to the alternative set of delimiters.
+" <leader>cs: Comments out the selected lines ``sexily''
+" <leader>cm: Comments the given lines using only one set of multipart delimiters.
+" <leader>cA: Adds comment delimiters to the end of line and goes into insert mode between them.
 
 
 
@@ -276,16 +277,17 @@ let g:gitgutter_max_signs = -1
 " preview the hunk: <Leader>hp
 
 " :G
-" :Gvdiffsplit
+" :Gdiffsplit
 " :GBrowse
 "
-" s: 加到暂存区中
-" u: 重置加入暂存区的修改
-" X: 丢弃修改
-" ca: 更改上一次提交
-" ce: 使用上一次提交
-" =: 切换 diff 显示
-" cc: 提交当前暂存区中的文件
+" s: stage (add) the file or hunk under the cursor.
+" u: unstage (reset) the file or hunk under the cursor.
+" X: discard the change under the cursor.
+" dd: perform a |:Gdiffsplit| on the file under the cursor.
+" cc: create a commit.
+" ca: amend the last commit and edit the message.
+" ce: amend the last commit without editing the message.
+" =: toggle an inline diff of the file under the cursor.
 
 
 
@@ -298,7 +300,6 @@ let g:gitgutter_max_signs = -1
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }      " https://github.com/iamcco/markdown-preview.nvim
 
 " :MarkdownPreview
-" :MarkdownPreviewStop
 
 
 
@@ -326,7 +327,6 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' }     " https://github.com/p
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
-" :PrettierAsync
 
 
 
@@ -362,10 +362,5 @@ call plug#end()
 " PlugInstall
 " PlugUpdate
 " PlugClean
-" PlugUpgrade
-" PlugStatus
-" PlugDiff
-" PlugSnapshot
-
 
 
