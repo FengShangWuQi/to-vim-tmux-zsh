@@ -106,65 +106,39 @@ call 	plug#begin('~/.vim/plugged')
 " 树形目录
 " -----------------------------------------------
 Plug 'scrooloose/nerdtree'                            " https://github.com/preservim/nerdtree
-Plug 'jistr/vim-nerdtree-tabs'                        " https://github.com/jistr/vim-nerdtree-tabs
 Plug 'Xuyuanp/nerdtree-git-plugin'                    " https://github.com/Xuyuanp/nerdtree-git-plugin
 Plug 'ryanoasis/vim-devicons'                         " https://github.com/ryanoasis/vim-devicons
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
-Plug 'tpope/vim-eunuch'                               " https://github.com/tpope/vim-eunuch
 
-map <C-n> :NERDTreeToggle<CR>
-
+nnoremap dt :tabclose<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * silent NERDTreeMirror
 
-let g:nerdtree_tabs_open_on_console_startup = 1
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
-" i open split
-" s open vsplit
-" t open in new tab
-" J go to last child
-" K go to first child
-" r 刷新光标所在的目录
-" R 刷新当前根路径
-" I 显示隐藏文件
-" m 显示文件操作菜单
-" C 将根路径设置为光标所在的目录
-" u 设置上级目录为根路径
-" gT 前一个 tab
-" gt 后一个 tab
-" <C-W> + w 跳转到下一个窗口
+" i Open selected file in a split window
+" s Open selected file in a new vsplit
+" t Open selected node/bookmark in a new tab
+" J Jump down inside directories at the current tree depth
+" K Jump up inside directories at the current tree depth
+" r Recursively refresh the current directory
+" R Recursively refresh the current roo
+" m Display the NERDTree menu
+" C Change the tree root to the selected directory
+" u Move the tree root up one directory
+" A Zoom (maximize/minimize) the NERDTree window
+" I Toggle whether hidden files displayed
 
-
-
-
-
-
-" -----------------------------------------------
-" 标签
-" -----------------------------------------------
-Plug 'majutsushi/tagbar'                         " https://github.com/majutsushi/tagbar
-
-nnoremap <F9>      :TagbarToggle<CR>
-inoremap <F9> <C-O>:TagbarToggle<CR>
-
-let g:tagbar_type_typescript = {
-  \ 'ctagsbin' : 'tstags',
-  \ 'ctagsargs' : '-f-',
-  \ 'kinds': [
-    \ 'e:enums:0:1',
-    \ 'f:function:0:1',
-    \ 't:typealias:0:1',
-    \ 'M:Module:0:1',
-    \ 'I:import:0:1',
-    \ 'i:interface:0:1',
-    \ 'C:class:0:1',
-    \ 'm:method:0:1',
-    \ 'p:property:0:1',
-    \ 'v:variable:0:1',
-    \ 'c:const:0:1',
-  \ ],
-  \ 'sort' : 0
-\ }
 
 
 
@@ -177,8 +151,9 @@ let g:tagbar_type_typescript = {
 Plug 'Valloric/YouCompleteMe'                         " https://github.com/ycm-core/YouCompleteMe
 Plug 'Raimondi/delimitMate'                           " https://github.com/Raimondi/delimitMate
 
-nnoremap <Leader>fi :YcmCompleter FixIt<CR>
-nnoremap <Leader>gd :YcmCompleter GoToDefinition<CR>
+set completeopt=longest,menuone
+nnoremap <Leader>jd :YcmCompleter GoToDefinition<CR>
+
 
 
 
