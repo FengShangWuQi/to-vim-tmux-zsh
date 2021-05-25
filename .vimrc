@@ -123,9 +123,6 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * silent NERDTreeMirror
 
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
 " i Open selected file in a split window
 " s Open selected file in a new vsplit
 " t Open selected node/bookmark in a new tab
@@ -170,7 +167,6 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '▶'
-
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
@@ -272,7 +268,7 @@ let g:gitgutter_max_signs = -1
 " -----------------------------------------------
 " Markdown
 " -----------------------------------------------
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }      " https://github.com/iamcco/markdown-preview.nvim
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }      " https://github.com/iamcco/markdown-preview.nvim
 
 " :MarkdownPreview
 
