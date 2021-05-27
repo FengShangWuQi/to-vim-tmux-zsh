@@ -83,8 +83,13 @@ export UPDATE_ZSH_DAYS=7
 plugins=(
 	tmux
 	z
+
+	# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
 	git
+
+	# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
 	npm
+	# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/yarn/README.md
 	yarn
 )
 
@@ -133,4 +138,5 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # python
 alias python="/usr/local/bin/python3"
+
 
