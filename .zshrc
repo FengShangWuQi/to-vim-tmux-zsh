@@ -83,14 +83,9 @@ export UPDATE_ZSH_DAYS=7
 plugins=(
 	tmux
 	z
-
-	# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
-	git
-
-	# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
-	npm
-	# https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/yarn/README.md
-	yarn
+	git # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
+	npm # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
+	yarn # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/yarn/README.md
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -128,6 +123,8 @@ zinit wait lucid for \
 	zdharma/fast-syntax-highlighting \
 	zsh-users/zsh-autosuggestions
 
+zinit wait lucid for \
+	ntnyq/omz-plugin-pnpm # https://github.com/ntnyq/omz-plugin-pnpm
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
