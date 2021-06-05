@@ -185,6 +185,7 @@ let g:ctrlp_regexp = 1
 " <c-r>: switch to regexp mode.
 " <c-t>：open the selected entry in a new tab.
 " <c-v>、<c-x>：open the selected entry in a new split.
+" <c-z>: mark/unmark multiple files
 
 
 
