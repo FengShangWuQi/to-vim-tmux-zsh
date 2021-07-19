@@ -9,7 +9,6 @@
   "author": "fengshangwuqi <fengshangwuqi@gmail.com>",
   "scripts": {
     "prepare": "husky install",
-    "preinstall": "npx only-allow pnpm",
     "format": "prettier --write ."
   },
   "commitlint": {
