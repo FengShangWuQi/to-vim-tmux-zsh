@@ -1,4 +1,0 @@
-{
-  "extends": ["config:base", ":automergePr", ":automergeMinor"],
-  "baseBranches": ["master"]
-}
