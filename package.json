@@ -29,5 +29,9 @@
     "prettier": "2.3.0",
     "pretty-quick": "3.1.0"
   },
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=6"
+  },
   "license": "MIT"
 }
