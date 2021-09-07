@@ -1,4 +1,9 @@
 {
-  "extends": ["config:base", ":automergePr", ":automergeMinor"],
+  "extends": [
+    "config:base",
+    ":automergePr",
+    ":automergeMinor",
+    ":disableDependencyDashboard"
+  ],
   "baseBranches": ["master"]
 }
