@@ -18,8 +18,8 @@
   },
   "prettier": {
     "trailingComma": "all",
-    "jsxBracketSameLine": true,
-    "arrowParens": "avoid"
+    "arrowParens": "avoid",
+    "bracketSameLine": true
   },
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
