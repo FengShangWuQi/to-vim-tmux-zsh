@@ -4,7 +4,7 @@ specifiers:
   '@commitlint/cli': 13.2.0
   '@commitlint/config-conventional': 13.2.0
   husky: 7.0.2
-  lint-staged: 11.2.0
+  lint-staged: 11.2.1
   prettier: 2.4.1
   pretty-quick: 3.1.1
 
@@ -12,7 +12,7 @@ devDependencies:
   '@commitlint/cli': 13.2.0
   '@commitlint/config-conventional': 13.2.0
   husky: registry.nlark.com/husky/7.0.2
-  lint-staged: 11.2.0
+  lint-staged: 11.2.1
   prettier: 2.4.1
   pretty-quick: registry.nlark.com/pretty-quick/3.1.1_prettier@2.4.1
 
@@ -745,8 +745,8 @@ packages:
     resolution: {integrity: sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=}
     dev: true
 
-  /lint-staged/11.2.0:
-    resolution: {integrity: sha512-0KIcRuO4HQS2Su7qWtjrfTXgSklvyIb9Fk9qVWRZkGHa5S81Vj6WBbs+ogQBvHUwLJYq1eQ4R+H82GSak4OM7w==}
+  /lint-staged/11.2.1:
+    resolution: {integrity: sha512-p56vAvBwABYSThvncT1Vuq0u6A8ZS56oC+eURfoavqyhBPJv+RGAmIU2kEYQOO19LPQVHQJ56eoBq/ARPlBoVQ==}
     hasBin: true
     dependencies:
       cli-truncate: 2.1.0
