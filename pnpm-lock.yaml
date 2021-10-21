@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@commitlint/cli': 13.2.1
   '@commitlint/config-conventional': 13.2.0
-  husky: 7.0.2
+  husky: 7.0.4
   lint-staged: 11.2.3
   prettier: 2.4.1
   pretty-quick: 3.1.1
@@ -11,7 +11,7 @@ specifiers:
 devDependencies:
   '@commitlint/cli': 13.2.1
   '@commitlint/config-conventional': 13.2.0
-  husky: registry.nlark.com/husky/7.0.2
+  husky: 7.0.4
   lint-staged: 11.2.3
   prettier: 2.4.1
   pretty-quick: registry.nlark.com/pretty-quick/3.1.1_prettier@2.4.1
@@ -633,6 +633,12 @@ packages:
   /human-signals/2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
+    dev: true
+
+  /husky/7.0.4:
+    resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
+    engines: {node: '>=12'}
+    hasBin: true
     dev: true
 
   /import-fresh/3.3.0:
@@ -1578,14 +1584,6 @@ packages:
     name: human-signals
     version: 1.1.1
     engines: {node: '>=8.12.0'}
-    dev: true
-
-  registry.nlark.com/husky/7.0.2:
-    resolution: {integrity: sha1-IZANoPMBmazKQ6RsBDxK2Erojf8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/husky/download/husky-7.0.2.tgz}
-    name: husky
-    version: 7.0.2
-    engines: {node: '>=12'}
-    hasBin: true
     dev: true
 
   registry.nlark.com/ignore/5.1.8:
