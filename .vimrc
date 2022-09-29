@@ -317,6 +317,9 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 " -----------------------------------------------
 Plug 'wakatime/vim-wakatime'                              " https://github.com/wakatime/vim-wakatime
 
+" :WakaTimeApiKey
+" :WakaTimeToday
+
 
 
 
