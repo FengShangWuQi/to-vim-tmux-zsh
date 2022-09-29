@@ -83,14 +83,6 @@ set cursorline
 " 启动 vim 时关闭折叠代码
 set nofoldenable
 
-" 主题
-syntax enable
-colorscheme PaperColor
-set background=dark
-
-" 背景透明
-hi Normal ctermfg=252 ctermbg=none
-
 
 
 
@@ -101,6 +93,19 @@ hi Normal ctermfg=252 ctermbg=none
 "==========================================
 
 call 	plug#begin('~/.vim/plugged')
+
+" -----------------------------------------------
+" 主题
+" -----------------------------------------------
+
+Plug 'dracula/vim', { 'as': 'dracula' }               " https://draculatheme.com/vim
+Plug 'rakr/vim-one'                                   " https://github.com/rakr/vim-one
+Plug 'NLKNguyen/papercolor-theme'                     " https://github.com/NLKNguyen/papercolor-theme
+
+
+
+
+
 
 " -----------------------------------------------
 " 树形目录
@@ -198,7 +203,7 @@ let g:ctrlp_regexp = 1
 Plug 'vim-airline/vim-airline'                        " https://github.com/vim-airline/vim-airline
 Plug 'vim-airline/vim-airline-themes'                 " https://github.com/vim-airline/vim-airline-themes
 
-let g:airline_theme='papercolor'
+let g:airline_theme='alduin'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -208,6 +213,8 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#nerdtree_statusline = 0
 let g:airline_extensions = ['tabline', 'hunks', 'branch', "ctrlp"]
 let g:airline_highlighting_cache = 1
+
+" :AirlineTheme <theme>                               " https://github.com/vim-airline/vim-airline-themes/tree/master/autoload/airline/themes
 
 
 
@@ -335,4 +342,16 @@ call plug#end()
 " PlugUpdate
 " PlugClean
 
+
+
+
+
+
+
+" 主题
+syntax enable
+set background=dark
+colorscheme dracula
+" 背景透明
+hi Normal ctermfg=252 ctermbg=none
 
