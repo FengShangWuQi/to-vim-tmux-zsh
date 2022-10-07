@@ -124,17 +124,17 @@ Plug 'ryanoasis/vim-devicons'                         " https://github.com/ryano
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 
 nnoremap dt :tabclose<CR>
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
 " Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * silent NERDTreeMirror
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " i Open selected file in a split window
 " s Open selected file in a new vsplit
