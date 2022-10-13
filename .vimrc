@@ -114,6 +114,26 @@ Plug 'NLKNguyen/papercolor-theme'                     " https://github.com/NLKNg
 
 
 
+
+" -----------------------------------------------
+" 全局搜索，快速打开文件
+" -----------------------------------------------
+Plug 'ctrlpvim/ctrlp.vim'                             " https://github.com/ctrlpvim/ctrlp.vim
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_regexp = 1
+
+" <c-r>: switch to regexp mode.
+" <c-t>：open the selected entry in a new tab.
+" <c-v>、<c-x>：open the selected entry in a new split.
+" <c-z>: mark/unmark multiple files
+
+
+
+
+
+
+
 " -----------------------------------------------
 " 树形目录
 " -----------------------------------------------
@@ -122,12 +142,15 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                    " https://github.com/Xuyua
 Plug 'ryanoasis/vim-devicons'                         " https://github.com/ryanoasis/vim-devicons
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
 
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+
 nnoremap dt :tabclose<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden = 1
-" Start NERDTree. If a file is specified, move the cursor to its window.
+" Start NERDTree. If a file is specified, move the cursor to ittiagofumo/vim-nerdtree-syntax-highlights window.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
@@ -182,22 +205,6 @@ let g:ale_sign_warning = '▶'
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-
-
-
-
-" -----------------------------------------------
-" 全局搜索，快速打开文件
-" -----------------------------------------------
-Plug 'ctrlpvim/ctrlp.vim'                             " https://github.com/ctrlpvim/ctrlp.vim
-
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_regexp = 1
-
-" <c-r>: switch to regexp mode.
-" <c-t>：open the selected entry in a new tab.
-" <c-v>、<c-x>：open the selected entry in a new split.
-" <c-z>: mark/unmark multiple files
 
 
 
