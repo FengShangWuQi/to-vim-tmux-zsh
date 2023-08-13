@@ -86,6 +86,9 @@ plugins=(
 	git # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
 	npm # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
 	yarn # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/yarn/README.md
+	pnpm # https://github.com/ntnyq/omz-plugin-pnpm
+	zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions
+	zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,15 +119,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
-source ~/.zinit/bin/zinit.zsh
-
-zinit wait lucid for \
-	zdharma/fast-syntax-highlighting \
-	zsh-users/zsh-autosuggestions
-
-zinit wait lucid for \
-	ntnyq/omz-plugin-pnpm # https://github.com/ntnyq/omz-plugin-pnpm
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
