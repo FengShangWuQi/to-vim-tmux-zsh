@@ -9,11 +9,10 @@ $ git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git
 
 # 安装依赖
 
-- vim 插件管理 vim-plug
+- vim 插件管理 vim-plug;
 - oh-my-zsh;
-- zsh 插件管理 zinit；
 - zsh 主题 powerlevel10k;
-- nerd-fonts；
+- nerd-fonts;
 
 # 建立相关配置文件的软链接，方便直接更新
 
@@ -28,7 +27,9 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
 - [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe)
 - [wakatime](https://wakatime.com)
 - [oh-my-zsh](https://ohmyz.sh/)
-- [zinit](https://github.com/zdharma/zinit)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [pnpm](https://github.com/ntnyq/omz-plugin-pnpm)
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
 ## 截图
