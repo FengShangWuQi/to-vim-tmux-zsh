@@ -81,7 +81,7 @@ export UPDATE_ZSH_DAYS=7
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	tmux
+	tmux # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/tmux/README.md
 	z
 	git # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
 	npm # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
