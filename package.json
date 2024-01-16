@@ -27,7 +27,7 @@
     "husky": "7.0.4",
     "lint-staged": "11.2.6",
     "prettier": "2.8.8",
-    "pretty-quick": "3.1.4"
+    "pretty-quick": "3.2.1"
   },
   "engines": {
     "node": ">=14",
