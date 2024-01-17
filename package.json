@@ -22,8 +22,8 @@
     "bracketSameLine": true
   },
   "devDependencies": {
-    "@commitlint/cli": "13.2.1",
-    "@commitlint/config-conventional": "13.2.0",
+    "@commitlint/cli": "18.4.4",
+    "@commitlint/config-conventional": "18.4.4",
     "husky": "7.0.4",
     "lint-staged": "11.2.6",
     "prettier": "2.8.8",
