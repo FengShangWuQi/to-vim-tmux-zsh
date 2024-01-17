@@ -21,8 +21,8 @@ devDependencies:
     specifier: 2.8.8
     version: registry.npmmirror.com/prettier@2.8.8
   pretty-quick:
-    specifier: 3.3.1
-    version: 3.3.1(prettier@2.8.8)
+    specifier: 4.0.0
+    version: 4.0.0(prettier@2.8.8)
 
 packages:
 
@@ -493,12 +493,6 @@ packages:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
     dev: true
 
-  /end-of-stream@1.4.4:
-    resolution: {integrity: sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==, tarball: https://registry.npmmirror.com/end-of-stream/-/end-of-stream-1.4.4.tgz}
-    dependencies:
-      once: 1.4.0
-    dev: true
-
   /enquirer@2.3.6:
     resolution: {integrity: sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==}
     engines: {node: '>=8.6'}
@@ -520,21 +514,6 @@ packages:
   /escape-string-regexp@1.0.5:
     resolution: {integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=}
     engines: {node: '>=0.8.0'}
-    dev: true
-
-  /execa@4.1.0:
-    resolution: {integrity: sha512-j5W0//W7f8UxAn8hXVnwG8tLwdiUy4FJLcSupCg6maBYZDpyBvTApK7KyuI4bKj8KOh1r2YH+6ucuYtJv1bTZA==, tarball: https://registry.npmmirror.com/execa/-/execa-4.1.0.tgz}
-    engines: {node: '>=10'}
-    dependencies:
-      cross-spawn: 7.0.3
-      get-stream: 5.2.0
-      human-signals: 1.1.1
-      is-stream: 2.0.1
-      merge-stream: 2.0.0
-      npm-run-path: 4.0.1
-      onetime: 5.1.2
-      signal-exit: 3.0.3
-      strip-final-newline: 2.0.0
     dev: true
 
   /execa@5.1.1:
@@ -597,13 +576,6 @@ packages:
     resolution: {integrity: sha512-I0UBV/XOz1XkIJHEUDMZAbzCThU/H8DxmSfmdGcKPnVhu2VfFqr34jr9777IyaTYvxjedWhqVIilEDsCdP5G6g==}
     dev: true
 
-  /get-stream@5.2.0:
-    resolution: {integrity: sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA==, tarball: https://registry.npmmirror.com/get-stream/-/get-stream-5.2.0.tgz}
-    engines: {node: '>=8'}
-    dependencies:
-      pump: 3.0.0
-    dev: true
-
   /get-stream@6.0.1:
     resolution: {integrity: sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==}
     engines: {node: '>=10'}
@@ -664,11 +636,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       lru-cache: 6.0.0
-    dev: true
-
-  /human-signals@1.1.1:
-    resolution: {integrity: sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==, tarball: https://registry.npmmirror.com/human-signals/-/human-signals-1.1.1.tgz}
-    engines: {node: '>=8.12.0'}
     dev: true
 
   /human-signals@2.1.0:
@@ -971,12 +938,6 @@ packages:
       path-key: 3.1.1
     dev: true
 
-  /once@1.4.0:
-    resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==, tarball: https://registry.npmmirror.com/once/-/once-1.4.0.tgz}
-    dependencies:
-      wrappy: 1.0.2
-    dev: true
-
   /onetime@5.1.2:
     resolution: {integrity: sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==, tarball: https://registry.npmmirror.com/onetime/-/onetime-5.1.2.tgz}
     engines: {node: '>=6'}
@@ -1080,28 +1041,21 @@ packages:
       semver-compare: 1.0.0
     dev: true
 
-  /pretty-quick@3.3.1(prettier@2.8.8):
-    resolution: {integrity: sha512-3b36UXfYQ+IXXqex6mCca89jC8u0mYLqFAN5eTQKoXO6oCQYcIVYZEB/5AlBHI7JPYygReM2Vv6Vom/Gln7fBg==, tarball: https://registry.npmmirror.com/pretty-quick/-/pretty-quick-3.3.1.tgz}
-    engines: {node: '>=10.13'}
+  /pretty-quick@4.0.0(prettier@2.8.8):
+    resolution: {integrity: sha512-M+2MmeufXb/M7Xw3Afh1gxcYpj+sK0AxEfnfF958ktFeAyi5MsKY5brymVURQLgPLV1QaF5P4pb2oFJ54H3yzQ==, tarball: https://registry.npmmirror.com/pretty-quick/-/pretty-quick-4.0.0.tgz}
+    engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
-      prettier: ^2.0.0
+      prettier: ^3.0.0
     dependencies:
-      execa: 4.1.0
-      find-up: 4.1.0
+      execa: 5.1.1
+      find-up: 5.0.0
       ignore: 5.3.0
       mri: 1.2.0
       picocolors: 1.0.0
       picomatch: 3.0.1
       prettier: registry.npmmirror.com/prettier@2.8.8
       tslib: 2.6.2
-    dev: true
-
-  /pump@3.0.0:
-    resolution: {integrity: sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==, tarball: https://registry.npmmirror.com/pump/-/pump-3.0.0.tgz}
-    dependencies:
-      end-of-stream: 1.4.4
-      once: 1.4.0
     dev: true
 
   /q@1.5.1:
@@ -1475,10 +1429,6 @@ packages:
       ansi-styles: 4.3.0
       string-width: 4.2.2
       strip-ansi: 6.0.0
-    dev: true
-
-  /wrappy@1.0.2:
-    resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==, tarball: https://registry.npmmirror.com/wrappy/-/wrappy-1.0.2.tgz}
     dev: true
 
   /y18n@5.0.8:
