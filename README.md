@@ -1,6 +1,6 @@
 # to-vim-tmux-zsh
 
-Neovim + tmux + zsh 的个人开发环境配置。
+开箱即用的 Neovim + tmux + zsh 开发环境配置。
 
 ## 安装
 
@@ -9,11 +9,10 @@ Neovim + tmux + zsh 的个人开发环境配置。
 - [Neovim](https://neovim.io/) (>= 0.11.0)
 - [Nerd Fonts](https://www.nerdfonts.com/)
 - [oh-my-zsh](https://ohmyz.sh/)
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-- [pnpm](https://github.com/ntnyq/omz-plugin-pnpm)
-- [wakatime](https://wakatime.com)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k) — zsh 主题
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) — zsh 插件
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) — zsh 插件
+- [omz-plugin-pnpm](https://github.com/ntnyq/omz-plugin-pnpm) — zsh 插件（pnpm 补全）
 
 ### 步骤
 
@@ -21,7 +20,7 @@ Neovim + tmux + zsh 的个人开发环境配置。
 # 克隆仓库
 git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git ~/Documents/to-vim-tmux-zsh
 
-# 建立软链接
+# 建立软链接（如已有同名文件，请先备份）
 ln -s ~/Documents/to-vim-tmux-zsh/.config/nvim ~/.config/nvim
 ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
 ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf.local ~/.tmux.conf.local
@@ -33,7 +32,7 @@ ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
 
 ## Neovim
 
-基于 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 裁剪的配置。
+基于 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 的精简配置，开箱即用。
 
 ### 模式
 
@@ -105,7 +104,7 @@ ya)                     复制括号内的内容（含括号）
 
 文件树内操作：`Enter` 打开文件，`a` 新建，`d` 删除，`r` 重命名，`m` 移动。
 
-### 代码编辑
+### 代码导航与编辑（LSP）
 
 | 快捷键 | 功能 |
 |---|---|
@@ -150,7 +149,7 @@ ya)                     复制括号内的内容（含括号）
 ```
 :w                      保存
 :q                      退出（未保存会提示）
-:wq                     保存并退出
+:wq 或 ZZ               保存并退出
 :Mason                  管理语言服务（安装 / 更新 LSP）
 :Lazy                   管理插件
 :MarkdownPreview        预览 Markdown
