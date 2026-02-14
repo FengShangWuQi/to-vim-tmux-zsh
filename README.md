@@ -1,41 +1,41 @@
-> # to-vim-tmux-zsh
+# to-vim-tmux-zsh
 
-## 使用
+Neovim + tmux + zsh 的个人开发环境配置。
 
-```
-# 克隆仓库
+## 安装
 
-$ git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git
+### 依赖
 
-# 安装依赖
-
-- Neovim (>= 0.11.0);
-- oh-my-zsh;
-- zsh 主题 powerlevel10k;
-- nerd-fonts;
-
-# 建立相关配置文件的软链接，方便直接更新
-
-$ ln -s ~/Documents/to-vim-tmux-zsh/.config/nvim ~/.config/nvim
-$ ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
-$ ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf.local ~/.tmux.conf.local
-$ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
-$ ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
-```
-
-- [Neovim](https://neovim.io/)
-- [wakatime](https://wakatime.com)
+- [Neovim](https://neovim.io/) (>= 0.11.0)
+- [Nerd Fonts](https://www.nerdfonts.com/)
 - [oh-my-zsh](https://ohmyz.sh/)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [pnpm](https://github.com/ntnyq/omz-plugin-pnpm)
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- [wakatime](https://wakatime.com)
 
-### nvim
+### 步骤
 
-基于 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 的 Neovim 配置，首次启动会自动安装所有插件。
+```bash
+# 克隆仓库
+git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git ~/Documents/to-vim-tmux-zsh
 
-#### 模式
+# 建立软链接
+ln -s ~/Documents/to-vim-tmux-zsh/.config/nvim ~/.config/nvim
+ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
+ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf.local ~/.tmux.conf.local
+ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
+ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
+```
+
+首次启动 `nvim`，[lazy.nvim](https://github.com/folke/lazy.nvim) 会自动安装所有插件。
+
+## Neovim
+
+基于 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 裁剪的配置。
+
+### 模式
 
 Neovim 是模态编辑器，不同模式下按键含义不同：
 
@@ -48,7 +48,7 @@ Neovim 是模态编辑器，不同模式下按键含义不同：
 
 > 首次使用建议在 Neovim 中运行 `:Tutor`，跟随内置教程学习基础操作。
 
-#### 基础操作
+### 基础操作
 
 ```
 # 移动
@@ -78,11 +78,11 @@ di"                     删除引号内的内容
 ya)                     复制括号内的内容（含括号）
 ```
 
-#### Leader 键
+### Leader 键
 
 本配置的 Leader 键为 **空格键**。按下空格后等待片刻，[which-key](https://github.com/folke/which-key.nvim) 会弹出提示面板，显示所有可用的后续按键。
 
-#### 搜索（Telescope）
+### 搜索（Telescope）
 
 | 快捷键 | 功能 |
 |---|---|
@@ -96,7 +96,7 @@ ya)                     复制括号内的内容（含括号）
 | `<leader>sh` | 搜索帮助文档 |
 | `<leader>sk` | 搜索快捷键 |
 
-#### 文件树（Neo-tree）
+### 文件树（Neo-tree）
 
 | 快捷键 | 功能 |
 |---|---|
@@ -105,7 +105,7 @@ ya)                     复制括号内的内容（含括号）
 
 文件树内操作：`Enter` 打开文件，`a` 新建，`d` 删除，`r` 重命名，`m` 移动。
 
-#### 代码编辑
+### 代码编辑
 
 | 快捷键 | 功能 |
 |---|---|
@@ -121,14 +121,14 @@ ya)                     复制括号内的内容（含括号）
 
 自动补全在输入时触发，`Ctrl-n` / `Ctrl-p` 上下选择，`Ctrl-y` 确认。
 
-#### 注释
+### 注释
 
 | 快捷键 | 功能 |
 |---|---|
 | `gcc` | 切换当前行注释 |
 | `gc` + 动作 | 切换选区注释（如 `gcap` 注释整段） |
 
-#### Git
+### Git
 
 | 快捷键 | 功能 |
 |---|---|
@@ -137,7 +137,7 @@ ya)                     复制括号内的内容（含括号）
 | `<leader>gh` | 当前文件历史 |
 | `<leader>gH` | 分支历史 |
 
-#### 窗口与分屏
+### 窗口与分屏
 
 | 快捷键 | 功能 |
 |---|---|
@@ -145,7 +145,7 @@ ya)                     复制括号内的内容（含括号）
 | `:vs` / `:sp` | 垂直 / 水平分屏 |
 | `:q` | 关闭当前窗口 |
 
-#### 常用命令
+### 常用命令
 
 ```
 :w                      保存
@@ -157,16 +157,16 @@ ya)                     复制括号内的内容（含括号）
 :checkhealth            检查环境是否正常
 ```
 
-#### 学习资源
+### 学习资源
 
 - [Learn Vim](https://github.com/iggredible/Learn-Vim) — Vim/Neovim 入门书
 - [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) — 配置模板，注释即教程
 - [Lua 快速入门](https://learnxinyminutes.com/docs/lua/) — 10-15 分钟了解 Lua 基础
 
-### tmux
+## tmux
 
 一个窗口，帮你搞定所有
 
-### zsh
+## zsh
 
 非常棒的 shell，没理由再使用 bash
