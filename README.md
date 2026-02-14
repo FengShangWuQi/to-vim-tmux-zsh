@@ -317,4 +317,57 @@ tmux kill-session -t <name>  关闭会话
 
 ## zsh
 
-非常棒的 shell，没理由再使用 bash
+功能强大的 shell，拥有更好的补全、语法高亮和主题系统。
+
+基于 [oh-my-zsh](https://ohmyz.sh/) 框架 + [Powerlevel10k](https://github.com/romkatv/powerlevel10k) 主题，提供美观的提示符和丰富的插件生态。
+
+### 插件
+
+| 插件 | 说明 |
+|---|---|
+| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | 根据历史记录自动建议命令，按 `→` 接受 |
+| [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | 命令行实时语法高亮，错误命令显示红色 |
+| [z](https://github.com/agkozak/zsh-z) | 快速跳转常用目录，如 `z proj` 跳转到最常访问的匹配目录 |
+| [git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) | Git 命令缩写（如 `gst` = `git status`，`gco` = `git checkout`） |
+| [tmux](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux) | tmux 命令缩写（如 `ta` = `tmux attach`） |
+| [npm](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/npm) | npm 命令补全 |
+| [pnpm](https://github.com/ntnyq/omz-plugin-pnpm) | pnpm 命令补全 |
+
+### 常用快捷键
+
+| 快捷键 | 功能 |
+|---|---|
+| `Ctrl-a` / `Ctrl-e` | 光标移到行首 / 行尾 |
+| `Ctrl-w` | 删除光标前一个单词 |
+| `Ctrl-u` / `Ctrl-k` | 删除到行首 / 行尾 |
+| `Ctrl-r` | 搜索历史命令 |
+| `Ctrl-l` | 清屏 |
+| `↑` | 根据已输入内容搜索历史（前缀匹配） |
+| `→` | 接受 autosuggestions 建议 |
+
+### 自定义别名
+
+```bash
+alias python="python3"
+alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
+alias unsetproxy="unset ALL_PROXY"
+```
+
+### 常用命令
+
+```bash
+p10k configure              # 重新配置 Powerlevel10k 主题
+omz update                  # 更新 oh-my-zsh
+```
+
+测量启动耗时：
+
+```bash
+for i in $(seq 1 5); do /usr/bin/time /bin/zsh -i -c exit; done
+```
+
+### 学习资源
+
+- [A User's Guide to ZSH](https://zsh.sourceforge.io/Guide/) — 最全面的 zsh 指南
+- [oh-my-zsh Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/plugins) — 插件列表
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) — 主题文档

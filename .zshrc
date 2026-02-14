@@ -85,7 +85,6 @@ plugins=(
 	z
 	git # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
 	npm # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/npm/README.md
-	yarn # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/yarn/README.md
 	pnpm # https://github.com/ntnyq/omz-plugin-pnpm
 	zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions
 	zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting
@@ -128,7 +127,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
 
 # python
-alias python="/usr/local/bin/python3"
+alias python="python3"
 
 # proxy
 alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
