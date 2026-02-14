@@ -223,7 +223,97 @@ ya)                     复制括号内的内容（含括号）
 
 ## tmux
 
-一个窗口，帮你搞定所有
+终端复用器，一个窗口管理多个会话、窗口和面板，断开连接后会话依然保持运行。
+
+基于 [gpakosz/.tmux](https://github.com/gpakosz/.tmux) 配置，开箱即用，支持 Powerline 风格状态栏。配置分两层：`.tmux.conf`（基础框架，不要编辑）和 `.tmux.conf.local`（个人定制）。
+
+### 核心概念
+
+```
+Server ── Session ── Window ── Pane
+              │          │        └── 面板：窗口内的分割区域
+              │          └── 窗口：类似浏览器标签页
+              └── 会话：一组窗口的集合，可断开后重连
+```
+
+### 前缀键
+
+tmux 的快捷键需要先按 **前缀键** 再按功能键。本配置支持两个前缀键：
+
+- `Ctrl-b`（默认）
+- `Ctrl-a`（GNU Screen 兼容）
+
+### 会话管理
+
+```bash
+# 终端命令
+tmux new -s <name>           新建会话
+tmux a -t <name>             连接会话
+tmux ls                      列出所有会话
+tmux kill-session -t <name>  关闭会话
+```
+
+| 快捷键 | 功能 |
+|---|---|
+| `<prefix> d` | 断开当前会话 |
+| `<prefix> s` | 选择会话列表 |
+| `<prefix> $` | 重命名当前会话 |
+| `<prefix> C-c` | 新建会话 |
+| `<prefix> C-f` | 查找会话 |
+| `<prefix> (` / `)` | 切换到上一个 / 下一个会话 |
+
+### 窗口管理
+
+| 快捷键 | 功能 |
+|---|---|
+| `<prefix> c` | 新建窗口 |
+| `<prefix> ,` | 重命名当前窗口 |
+| `<prefix> &` | 关闭当前窗口 |
+| `<prefix> C-h` / `C-l` | 上一个 / 下一个窗口 |
+| `<prefix> Tab` | 跳转到上次活动的窗口 |
+| `<prefix> w` | 窗口列表 |
+
+### 面板管理
+
+| 快捷键 | 功能 |
+|---|---|
+| `<prefix> -` | 水平分割 |
+| `<prefix> _` | 垂直分割 |
+| `<prefix> h` / `j` / `k` / `l` | Vim 风格面板导航 |
+| `<prefix> H` / `J` / `K` / `L` | 调整面板大小 |
+| `<prefix> x` | 关闭当前面板 |
+| `<prefix> z` | 最大化 / 还原当前面板 |
+| `<prefix> q` | 显示面板编号，按数字跳转 |
+| `<prefix> {` / `}` | 与上方 / 下方面板交换 |
+| `<prefix> m` | 切换鼠标模式 |
+
+### 复制模式
+
+按 `<prefix> Enter` 进入复制模式（Vi 风格）：
+
+| 快捷键 | 功能 |
+|---|---|
+| `v` | 开始选择 |
+| `y` | 复制选中内容 |
+| `Escape` | 取消 |
+| `<prefix> b` | 列出粘贴缓冲区 |
+| `<prefix> p` | 粘贴 |
+
+### 其他
+
+| 快捷键 | 功能 |
+|---|---|
+| `<prefix> r` | 重新加载配置 |
+| `<prefix> e` | 编辑 .tmux.conf.local |
+| `<prefix> ?` | 列出所有快捷键 |
+| `<prefix> S` | 保存会话（tmux-resurrect） |
+| `<prefix> R` | 恢复会话（tmux-resurrect） |
+
+### 学习资源
+
+- [The Tao of tmux](https://tao-of-tmux.readthedocs.io/) — 最受推荐的 tmux 指南
+- [tmux Cheat Sheet](https://tmuxcheatsheet.com/) — 速查表
+- [gpakosz/.tmux](https://github.com/gpakosz/.tmux) — 本配置的基础框架
 
 ## zsh
 
