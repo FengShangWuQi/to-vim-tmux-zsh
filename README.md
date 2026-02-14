@@ -38,7 +38,7 @@ ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
 - **内置 LSP 客户端** — 原生支持语言服务协议，无需依赖重量级插件即可获得补全、跳转、重构等能力
 - **内置 Tree-sitter** — 基于语法树的高亮和代码分析，比正则匹配更精准
 - **异步架构** — 基于 libuv 的异步 I/O，插件运行不阻塞编辑
-- **现代插件生态** — Telescope、lazy.nvim、nvim-cmp 等活跃插件均为 Neovim 专属，社区发展更快
+- **现代插件生态** — Telescope、lazy.nvim、blink.cmp 等活跃插件均为 Neovim 专属，社区发展更快
 
 基于 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 的精简配置，开箱即用。
 
