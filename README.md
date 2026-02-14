@@ -9,31 +9,30 @@ $ git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git
 
 # 安装依赖
 
-- vim 插件管理 vim-plug;
+- Neovim (>= 0.11.0);
 - oh-my-zsh;
 - zsh 主题 powerlevel10k;
 - nerd-fonts;
 
 # 建立相关配置文件的软链接，方便直接更新
 
-$ ln -s ~/Documents/to-vim-tmux-zsh/.vimrc ~/.vimrc
+$ ln -s ~/Documents/to-vim-tmux-zsh/.config/nvim ~/.config/nvim
 $ ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
 $ ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf.local ~/.tmux.conf.local
 $ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 $ ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
 ```
 
-- [vim-plug](https://github.com/junegunn/vim-plug)
-- [YouCompleteMe](https://github.com/ycm-core/YouCompleteMe)
+- [Neovim](https://neovim.io/)
 - [wakatime](https://wakatime.com)
 - [oh-my-zsh](https://ohmyz.sh/)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [pnpm](https://github.com/ntnyq/omz-plugin-pnpm)
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
-### vim
+### nvim
 
-彪悍的编译器，不需要解释
+基于 kickstart.nvim 的 Neovim 配置
 
 ### tmux
 
