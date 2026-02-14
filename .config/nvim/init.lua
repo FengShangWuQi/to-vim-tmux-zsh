@@ -377,18 +377,18 @@ require('lazy').setup({
 
   { -- Treesitter
     'nvim-treesitter/nvim-treesitter',
-    config = function()
-      local filetypes = {
+    build = ':TSUpdate',
+    main = 'nvim-treesitter.configs',
+    opts = {
+      ensure_installed = {
         'bash', 'c', 'css', 'diff', 'go', 'html', 'javascript', 'json',
         'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'scss',
         'tsx', 'typescript', 'vim', 'vimdoc', 'yaml',
-      }
-      require('nvim-treesitter').install(filetypes)
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = filetypes,
-        callback = function() vim.treesitter.start() end,
-      })
-    end,
+      },
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },
+    },
   },
 
   -- -----------------------------------------------
