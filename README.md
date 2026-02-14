@@ -102,6 +102,11 @@ ya)                     复制括号内的内容（含括号）
 | `<leader><leader>` | 切换 buffer |
 | `<leader>sh` | 搜索帮助文档 |
 | `<leader>sk` | 搜索快捷键 |
+| `<leader>ss` | 搜索 Telescope 选择器 |
+| `<leader>sd` | 搜索诊断信息 |
+| `<leader>sc` | 搜索命令 |
+| `<leader>s/` | 在已打开的文件中搜索 |
+| `<leader>sn` | 搜索 Neovim 配置文件 |
 
 ### 文件树（Neo-tree）
 
@@ -126,13 +131,14 @@ ya)                     复制括号内的内容（含括号）
 | `gO` | 当前文件符号列表 |
 | `gW` | 工作区符号搜索 |
 | `grt` | 跳转到类型定义 |
+| `grD` | 跳转到声明 |
 | `K` | 查看悬浮文档 |
 | `<leader>f` | 格式化当前文件 |
 | `<leader>th` | 切换 Inlay Hints |
 
-自动补全在输入时触发，`Ctrl-n` / `Ctrl-p` 上下选择，`Ctrl-y` 确认。
+自动补全在输入时触发，`Ctrl-n` / `Ctrl-p` 上下选择，`Ctrl-y` 确认。保存文件时会自动格式化。
 
-格式化依赖 [prettierd](https://github.com/fsouza/prettierd) 或 [prettier](https://prettier.io/)，需预先安装：`npm install -g @fsouza/prettierd prettier`。
+格式化依赖 [prettierd](https://github.com/fsouza/prettierd) 或 [prettier](https://prettier.io/)，需预先安装：`npm install -g @fsouza/prettierd prettier`。Lua 文件使用 [stylua](https://github.com/JohnnyMorganz/StyLua)（通过 Mason 自动安装）。
 
 ### 注释
 
@@ -145,7 +151,13 @@ ya)                     复制括号内的内容（含括号）
 
 | 快捷键 | 功能 |
 |---|---|
-| `]c` / `[c` | 下一个 / 上一个修改块（hunk） |
+| `]h` / `[h` | 下一个 / 上一个修改块（hunk） |
+| `<leader>hs` | 暂存修改块 |
+| `<leader>hr` | 还原修改块 |
+| `<leader>hu` | 撤销暂存修改块 |
+| `<leader>hp` | 预览修改块 |
+| `<leader>hb` | 显示当前行 blame |
+| `<leader>hd` | 查看当前文件 diff |
 | `<leader>gd` | 打开 Git diff |
 | `<leader>gh` | 当前文件历史 |
 | `<leader>gH` | 分支历史 |
@@ -164,11 +176,32 @@ ya)                     复制括号内的内容（含括号）
 |---|---|
 | `<leader>xe` | 用 Emmet 缩写包裹选区 |
 
+### 文本对象与编辑增强（mini.nvim）
+
+| 快捷键 | 功能 |
+|---|---|
+| `sa` + 范围 + 字符 | 添加包围字符（如 `saiw"` 给单词加引号） |
+| `sd` + 字符 | 删除包围字符（如 `sd"` 删除引号） |
+| `sr` + 旧字符 + 新字符 | 替换包围字符（如 `sr"'` 把引号换成单引号） |
+
+- **mini.ai** — 增强文本对象，支持函数参数等更多范围
+- **mini.pairs** — 自动配对括号和引号
+
+### 其他快捷键
+
+| 快捷键 | 功能 |
+|---|---|
+| `Esc` | 清除搜索高亮 |
+| `Esc Esc` | 退出终端模式 |
+| `<leader>q` | 打开诊断信息列表 |
+
 ### 其他功能
 
 - **[guess-indent](https://github.com/NMAC427/guess-indent.nvim)** — 自动检测文件缩进风格
 - **[todo-comments](https://github.com/folke/todo-comments.nvim)** — 高亮代码中的 TODO / FIXME / NOTE 等注释
 - **[wakatime](https://wakatime.com/)** — 编码时间追踪（需要 WakaTime 账号）
+- **[render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim)** — 在缓冲区内渲染 Markdown（标题、表格、代码块等）
+- **[markdown.nvim](https://github.com/tadmccorkle/markdown.nvim)** — Markdown 编辑增强（列表管理、快捷键切换加粗/斜体等）
 
 ### 常用命令
 

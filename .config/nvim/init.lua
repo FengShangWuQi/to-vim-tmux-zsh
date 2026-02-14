@@ -29,6 +29,7 @@ vim.o.confirm = true
 -- Migrated from .vimrc
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
+vim.o.expandtab = true
 vim.o.foldenable = false
 
 -- [[ Basic Keymaps ]]
@@ -68,9 +69,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then error('Error cloning lazy.nvim:\n' .. out) end
 end
 
----@type vim.Option
-local rtp = vim.opt.rtp
-rtp:prepend(lazypath)
+---@diagnostic disable-next-line: undefined-field
+vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup({
@@ -86,12 +86,27 @@ require('lazy').setup({
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
       },
+      on_attach = function(bufnr)
+        local gitsigns = require 'gitsigns'
+        local map = function(mode, l, r, desc) vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc }) end
+
+        map('n', ']h', gitsigns.next_hunk, 'Next [H]unk')
+        map('n', '[h', gitsigns.prev_hunk, 'Prev [H]unk')
+        map('n', '<leader>hs', gitsigns.stage_hunk, '[H]unk [S]tage')
+        map('n', '<leader>hr', gitsigns.reset_hunk, '[H]unk [R]eset')
+        map('v', '<leader>hs', function() gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' } end, '[H]unk [S]tage')
+        map('v', '<leader>hr', function() gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' } end, '[H]unk [R]eset')
+        map('n', '<leader>hu', gitsigns.undo_stage_hunk, '[H]unk [U]ndo stage')
+        map('n', '<leader>hp', gitsigns.preview_hunk, '[H]unk [P]review')
+        map('n', '<leader>hb', gitsigns.blame_line, '[H]unk [B]lame line')
+        map('n', '<leader>hd', gitsigns.diffthis, '[H]unk [D]iff')
+      end,
     },
   },
 
   { -- Pending keybinds
     'folke/which-key.nvim',
-    event = 'VimEnter',
+    event = 'VeryLazy',
     opts = {
       delay = 0,
       icons = { mappings = vim.g.have_nerd_font },
@@ -106,7 +121,7 @@ require('lazy').setup({
 
   { -- Fuzzy Finder
     'nvim-telescope/telescope.nvim',
-    event = 'VimEnter',
+    event = 'VeryLazy',
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -224,6 +239,7 @@ require('lazy').setup({
       })
 
       local capabilities = require('blink.cmp').get_lsp_capabilities()
+      vim.lsp.config('*', { capabilities = capabilities })
 
       local servers = {
         -- Add your language servers here, e.g.:
@@ -241,7 +257,6 @@ require('lazy').setup({
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       for name, server in pairs(servers) do
-        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
         vim.lsp.config(name, server)
         vim.lsp.enable(name)
       end
@@ -314,7 +329,7 @@ require('lazy').setup({
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         graphql = { 'prettierd', 'prettier', stop_after_first = true },
         vue = { 'prettierd', 'prettier', stop_after_first = true },
-        ['*'] = { 'trim_whitespace' },
+        ['_'] = { 'trim_whitespace' },
       },
     },
   },
@@ -340,7 +355,7 @@ require('lazy').setup({
       keymap = { preset = 'default' },
       appearance = { nerd_font_variant = 'mono' },
       completion = {
-        documentation = { auto_show = false, auto_show_delay_ms = 500 },
+        documentation = { auto_show = true, auto_show_delay_ms = 500 },
       },
       sources = { default = { 'lsp', 'path', 'snippets' } },
       snippets = { preset = 'luasnip' },
@@ -362,7 +377,7 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { 'folke/todo-comments.nvim', event = 'VeryLazy', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   { -- mini.nvim collection
     'nvim-mini/mini.nvim',
@@ -389,7 +404,7 @@ require('lazy').setup({
         'tsx', 'typescript', 'vim', 'vimdoc', 'yaml',
       },
       auto_install = true,
-      highlight = { enable = true },
+      highlight = { enable = true, additional_vim_regex_highlighting = false },
       indent = { enable = true },
     },
   },
@@ -422,6 +437,7 @@ require('lazy').setup({
     },
     init = function()
       vim.api.nvim_create_autocmd('VimEnter', {
+        group = vim.api.nvim_create_augroup('neo-tree-auto-open', { clear = true }),
         callback = function()
           if vim.fn.argc() == 0 then
             vim.cmd 'Neotree show'
@@ -435,11 +451,12 @@ require('lazy').setup({
 
   { -- Wakatime
     'wakatime/vim-wakatime',
-    event = 'VimEnter',
+    event = 'VeryLazy',
   },
 
   { -- Emmet
     'olrtg/nvim-emmet',
+    ft = { 'html', 'css', 'scss', 'less', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue' },
     config = function()
       vim.keymap.set({ 'n', 'v' }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation, { desc = 'Emmet wrap with abbreviation' })
     end,
