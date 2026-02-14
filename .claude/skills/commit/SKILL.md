@@ -25,8 +25,9 @@ Create a git commit for the current changes. Follow these steps:
    EOF
    )"
    ```
-6. Run `git status` to verify success.
+6. Run `git status` to verify the commit succeeded.
 7. If the commit fails due to a pre-commit hook, fix the issue, re-stage, and create a **new** commit. NEVER use `--no-verify` to skip hooks.
+8. After a successful commit, run `git push` to push to the remote.
 
 ## Commit Message Rules
 
