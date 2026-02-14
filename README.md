@@ -178,7 +178,7 @@ ya)                     复制括号内的内容（含括号）
 :wq 或 ZZ               保存并退出
 :Mason                  管理语言服务（安装 / 更新 LSP）
 :Lazy                   管理插件
-:MarkdownPreview        预览 Markdown
+:RenderMarkdown toggle  切换 Markdown 渲染
 :checkhealth            检查环境是否正常
 ```
 

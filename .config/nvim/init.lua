@@ -235,6 +235,7 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'lua-language-server',
         'stylua',
+        'marksman',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -268,6 +269,8 @@ require('lazy').setup({
         },
       })
       vim.lsp.enable 'lua_ls'
+
+      vim.lsp.enable 'marksman'
     end,
   },
 
@@ -452,11 +455,17 @@ require('lazy').setup({
     },
   },
 
-  { -- Markdown preview
-    'iamcco/markdown-preview.nvim',
-    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+  { -- Render markdown in buffer
+    'MeanderingProgrammer/render-markdown.nvim',
     ft = { 'markdown' },
-    build = 'cd app && npm install',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    opts = {},
+  },
+
+  { -- Markdown editing helpers
+    'tadmccorkle/markdown.nvim',
+    ft = { 'markdown' },
+    opts = {},
   },
 }, {
   ui = {
