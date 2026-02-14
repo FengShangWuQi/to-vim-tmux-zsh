@@ -98,6 +98,7 @@ require('lazy').setup({
       spec = {
         { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
         { '<leader>t', group = '[T]oggle' },
+        { '<leader>g', group = '[G]it' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
     },
@@ -427,6 +428,16 @@ require('lazy').setup({
     config = function()
       vim.keymap.set({ 'n', 'v' }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation, { desc = 'Emmet wrap with abbreviation' })
     end,
+  },
+
+  { -- Git diff viewer
+    'sindrets/diffview.nvim',
+    cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
+    keys = {
+      { '<leader>gd', '<cmd>DiffviewOpen<cr>', desc = 'Git diff' },
+      { '<leader>gh', '<cmd>DiffviewFileHistory %<cr>', desc = 'File history' },
+      { '<leader>gH', '<cmd>DiffviewFileHistory<cr>', desc = 'Branch history' },
+    },
   },
 
   { -- Markdown preview
