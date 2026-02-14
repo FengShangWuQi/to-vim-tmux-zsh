@@ -398,6 +398,7 @@ require('lazy').setup({
   { -- File tree
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
+    lazy = false,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',
@@ -408,6 +409,7 @@ require('lazy').setup({
       { '<C-f>', '<cmd>Neotree reveal<CR>', desc = 'Reveal file in Neo-tree' },
     },
     opts = {
+      open_on_setup = true,
       filesystem = {
         filtered_items = {
           visible = true,
@@ -416,6 +418,17 @@ require('lazy').setup({
         },
       },
     },
+    init = function()
+      vim.api.nvim_create_autocmd('VimEnter', {
+        callback = function()
+          if vim.fn.argc() == 0 then
+            vim.cmd 'Neotree show'
+          else
+            vim.cmd 'Neotree reveal'
+          end
+        end,
+      })
+    end,
   },
 
   { -- Wakatime
