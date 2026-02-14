@@ -409,7 +409,6 @@ require('lazy').setup({
       { '<C-f>', '<cmd>Neotree reveal<CR>', desc = 'Reveal file in Neo-tree' },
     },
     opts = {
-      open_on_setup = true,
       filesystem = {
         filtered_items = {
           visible = true,
@@ -433,7 +432,7 @@ require('lazy').setup({
 
   { -- Wakatime
     'wakatime/vim-wakatime',
-    lazy = false,
+    event = 'VimEnter',
   },
 
   { -- Emmet

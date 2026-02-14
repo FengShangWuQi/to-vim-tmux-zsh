@@ -124,11 +124,15 @@ ya)                     复制括号内的内容（含括号）
 | `gra` | 代码操作（Code Action） |
 | `gri` | 跳转到实现 |
 | `gO` | 当前文件符号列表 |
+| `gW` | 工作区符号搜索 |
+| `grt` | 跳转到类型定义 |
 | `K` | 查看悬浮文档 |
 | `<leader>f` | 格式化当前文件 |
 | `<leader>th` | 切换 Inlay Hints |
 
 自动补全在输入时触发，`Ctrl-n` / `Ctrl-p` 上下选择，`Ctrl-y` 确认。
+
+格式化依赖 [prettierd](https://github.com/fsouza/prettierd) 或 [prettier](https://prettier.io/)，需预先安装：`npm install -g @fsouza/prettierd prettier`。
 
 ### 注释
 
@@ -153,6 +157,18 @@ ya)                     复制括号内的内容（含括号）
 | `Ctrl-h/j/k/l` | 在窗口间移动焦点 |
 | `:vs` / `:sp` | 垂直 / 水平分屏 |
 | `:q` | 关闭当前窗口 |
+
+### Emmet
+
+| 快捷键 | 功能 |
+|---|---|
+| `<leader>xe` | 用 Emmet 缩写包裹选区 |
+
+### 其他功能
+
+- **[guess-indent](https://github.com/NMAC427/guess-indent.nvim)** — 自动检测文件缩进风格
+- **[todo-comments](https://github.com/folke/todo-comments.nvim)** — 高亮代码中的 TODO / FIXME / NOTE 等注释
+- **[wakatime](https://wakatime.com/)** — 编码时间追踪（需要 WakaTime 账号）
 
 ### 常用命令
 
