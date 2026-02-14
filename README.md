@@ -31,11 +31,6 @@ $ ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [pnpm](https://github.com/ntnyq/omz-plugin-pnpm)
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k)
-
-## 截图
-
-![screenshot](./images/screenshot.png)
-
 ### vim
 
 彪悍的编译器，不需要解释
