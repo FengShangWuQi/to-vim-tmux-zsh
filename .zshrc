@@ -132,3 +132,6 @@ alias python="python3"
 # proxy
 alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 alias unsetproxy="unset ALL_PROXY"
+
+typeset -U PATH
+export PATH="$HOME/.local/bin:$PATH"
