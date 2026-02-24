@@ -61,6 +61,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.hl.on_yank() end,
 })
 
+-- [[ Custom Keymaps ]]
+vim.keymap.set('n', '<leader>go', function() vim.fn.system { 'gh', 'browse' } end, { desc = '[G]it [O]pen in GitHub' })
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -134,6 +137,13 @@ require('lazy').setup({
     },
     config = function()
       require('telescope').setup {
+        pickers = {
+          find_files = {
+            hidden = true,
+            no_ignore_parent = false,
+            file_ignore_patterns = { '%.git/' },
+          },
+        },
         extensions = {
           ['ui-select'] = { require('telescope.themes').get_dropdown() },
         },
