@@ -1,0 +1,373 @@
+# to-vim-tmux-zsh
+
+开箱即用的 Neovim + tmux + zsh 开发环境配置。
+
+## 安装
+
+### 依赖
+
+- [Neovim](https://neovim.io/) (>= 0.11.0)
+- [Nerd Fonts](https://www.nerdfonts.com/)
+- [oh-my-zsh](https://ohmyz.sh/)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k) — zsh 主题
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) — zsh 插件
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) — zsh 插件
+- [omz-plugin-pnpm](https://github.com/ntnyq/omz-plugin-pnpm) — zsh 插件（pnpm 补全）
+
+### 步骤
+
+```bash
+# 克隆仓库
+git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git ~/Documents/to-vim-tmux-zsh
+
+# 建立软链接（如已有同名文件，请先备份）
+ln -s ~/Documents/to-vim-tmux-zsh/.config/nvim ~/.config/nvim
+ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
+ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf.local ~/.tmux.conf.local
+ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
+ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
+```
+
+首次启动 `nvim`，[lazy.nvim](https://github.com/folke/lazy.nvim) 会自动安装所有插件。
+
+## Neovim
+
+本项目选择 Neovim 而非 Vim：
+
+- **Lua 配置** — 用真正的编程语言写配置，逻辑清晰，远比 VimScript 易读易维护
+- **内置 LSP 客户端** — 原生支持语言服务协议，无需依赖重量级插件即可获得补全、跳转、重构等能力
+- **内置 Tree-sitter** — 基于语法树的高亮和代码分析，比正则匹配更精准
+- **异步架构** — 基于 libuv 的异步 I/O，插件运行不阻塞编辑
+- **现代插件生态** — Telescope、lazy.nvim、blink.cmp 等活跃插件均为 Neovim 专属，社区发展更快
+
+基于 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 的精简配置，开箱即用。
+
+### 模式
+
+Neovim 是模态编辑器，不同模式下按键含义不同：
+
+| 模式 | 进入方式 | 用途 |
+|---|---|---|
+| Normal | `Esc` | 默认模式，用于导航和执行命令 |
+| Insert | `i` / `a` / `o` | 输入文本 |
+| Visual | `v` / `V` / `Ctrl-v` | 选择文本 |
+| Command | `:` | 执行命令（如 `:w` 保存，`:q` 退出） |
+
+> 首次使用建议在 Neovim 中运行 `:Tutor`，跟随内置教程学习基础操作。
+
+### 基础操作
+
+```
+# 移动
+
+h j k l                 左 下 上 右
+w / b                   下一个 / 上一个单词
+0 / $                   行首 / 行尾
+gg / G                  文件开头 / 文件末尾
+Ctrl-d / Ctrl-u         向下 / 向上翻半页
+
+# 编辑
+
+i / a                   光标前 / 光标后插入
+o / O                   下方 / 上方新建一行
+x                       删除光标处字符
+dd                      删除整行
+yy                      复制整行
+p                       粘贴
+u / Ctrl-r              撤销 / 重做
+.                       重复上一次操作
+
+# 组合操作（动词 + 范围）
+
+dw                      删除一个单词
+ciw                     修改光标所在单词
+di"                     删除引号内的内容
+ya)                     复制括号内的内容（含括号）
+```
+
+### Leader 键
+
+本配置的 Leader 键为 **空格键**。按下空格后等待片刻，[which-key](https://github.com/folke/which-key.nvim) 会弹出提示面板，显示所有可用的后续按键。
+
+### 搜索（Telescope）
+
+| 快捷键 | 功能 |
+|---|---|
+| `<leader>sf` | 搜索文件 |
+| `<leader>sg` | 全局内容搜索（grep） |
+| `<leader>sw` | 搜索光标所在单词 |
+| `<leader>s.` | 最近打开的文件 |
+| `<leader>sr` | 恢复上次搜索 |
+| `<leader>/` | 当前文件内搜索 |
+| `<leader><leader>` | 切换 buffer |
+| `<leader>sh` | 搜索帮助文档 |
+| `<leader>sk` | 搜索快捷键 |
+| `<leader>ss` | 搜索 Telescope 选择器 |
+| `<leader>sd` | 搜索诊断信息 |
+| `<leader>sc` | 搜索命令 |
+| `<leader>s/` | 在已打开的文件中搜索 |
+| `<leader>sn` | 搜索 Neovim 配置文件 |
+
+### 文件树（Neo-tree）
+
+启动 nvim 会自动打开文件树，`Ctrl-l` 切换到编辑区，`Ctrl-h` 切回文件树。
+
+| 快捷键 | 功能 |
+|---|---|
+| `Ctrl-t` | 打开 / 关闭文件树 |
+| `Ctrl-f` | 在文件树中定位当前文件 |
+
+文件树内操作：`Enter` 打开文件，`a` 新建，`d` 删除，`r` 重命名，`m` 移动。
+
+### 代码导航与编辑（LSP）
+
+| 快捷键 | 功能 |
+|---|---|
+| `grd` | 跳转到定义 |
+| `grr` | 查找引用 |
+| `grn` | 重命名符号 |
+| `gra` | 代码操作（Code Action） |
+| `gri` | 跳转到实现 |
+| `gO` | 当前文件符号列表 |
+| `gW` | 工作区符号搜索 |
+| `grt` | 跳转到类型定义 |
+| `grD` | 跳转到声明 |
+| `K` | 查看悬浮文档 |
+| `<leader>f` | 格式化当前文件 |
+| `<leader>th` | 切换 Inlay Hints |
+
+自动补全在输入时触发，`Ctrl-n` / `Ctrl-p` 上下选择，`Ctrl-y` 确认。保存文件时会自动格式化。
+
+格式化依赖 [prettierd](https://github.com/fsouza/prettierd) 或 [prettier](https://prettier.io/)，需预先安装：`npm install -g @fsouza/prettierd prettier`。Lua 文件使用 [stylua](https://github.com/JohnnyMorganz/StyLua)（通过 Mason 自动安装）。
+
+### 注释
+
+| 快捷键 | 功能 |
+|---|---|
+| `gcc` | 切换当前行注释 |
+| `gc` + 动作 | 切换选区注释（如 `gcap` 注释整段） |
+
+### Git
+
+| 快捷键 | 功能 |
+|---|---|
+| `]h` / `[h` | 下一个 / 上一个修改块（hunk） |
+| `<leader>hs` | 暂存修改块 |
+| `<leader>hr` | 还原修改块 |
+| `<leader>hu` | 撤销暂存修改块 |
+| `<leader>hp` | 预览修改块 |
+| `<leader>hb` | 显示当前行 blame |
+| `<leader>hd` | 查看当前文件 diff |
+| `<leader>gd` | 打开 Git diff |
+| `<leader>gh` | 当前文件历史 |
+| `<leader>gH` | 分支历史 |
+
+### 窗口与分屏
+
+| 快捷键 | 功能 |
+|---|---|
+| `Ctrl-h/j/k/l` | 在窗口间移动焦点 |
+| `:vs` / `:sp` | 垂直 / 水平分屏 |
+| `:q` | 关闭当前窗口 |
+
+### Emmet
+
+| 快捷键 | 功能 |
+|---|---|
+| `<leader>xe` | 用 Emmet 缩写包裹选区 |
+
+### 文本对象与编辑增强（mini.nvim）
+
+| 快捷键 | 功能 |
+|---|---|
+| `sa` + 范围 + 字符 | 添加包围字符（如 `saiw"` 给单词加引号） |
+| `sd` + 字符 | 删除包围字符（如 `sd"` 删除引号） |
+| `sr` + 旧字符 + 新字符 | 替换包围字符（如 `sr"'` 把引号换成单引号） |
+
+- **mini.ai** — 增强文本对象，支持函数参数等更多范围
+- **mini.pairs** — 自动配对括号和引号
+
+### 其他快捷键
+
+| 快捷键 | 功能 |
+|---|---|
+| `Esc` | 清除搜索高亮 |
+| `Esc Esc` | 退出终端模式 |
+| `<leader>q` | 打开诊断信息列表 |
+
+### 其他功能
+
+- **[guess-indent](https://github.com/NMAC427/guess-indent.nvim)** — 自动检测文件缩进风格
+- **[todo-comments](https://github.com/folke/todo-comments.nvim)** — 高亮代码中的 TODO / FIXME / NOTE 等注释
+- **[wakatime](https://wakatime.com/)** — 编码时间追踪（需要 WakaTime 账号）
+- **[render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim)** — 在缓冲区内渲染 Markdown（标题、表格、代码块等）
+- **[markdown.nvim](https://github.com/tadmccorkle/markdown.nvim)** — Markdown 编辑增强（列表管理、快捷键切换加粗/斜体等）
+
+### 常用命令
+
+```
+:w                      保存
+:q                      退出（未保存会提示）
+:wq 或 ZZ               保存并退出
+:Mason                  管理语言服务（安装 / 更新 LSP）
+:Lazy                   管理插件
+:RenderMarkdown toggle  切换 Markdown 渲染
+:checkhealth            检查环境是否正常
+```
+
+### 学习资源
+
+- [Learn Vim](https://github.com/iggredible/Learn-Vim) — Vim/Neovim 入门书
+- [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) — 配置模板，注释即教程
+- [Lua 快速入门](https://learnxinyminutes.com/docs/lua/) — 10-15 分钟了解 Lua 基础
+
+## tmux
+
+终端复用器，一个窗口管理多个会话、窗口和面板，断开连接后会话依然保持运行。
+
+基于 [gpakosz/.tmux](https://github.com/gpakosz/.tmux) 配置，开箱即用，支持 Powerline 风格状态栏。配置分两层：`.tmux.conf`（基础框架，不要编辑）和 `.tmux.conf.local`（个人定制）。
+
+### 核心概念
+
+```
+Server ── Session ── Window ── Pane
+              │          │        └── 面板：窗口内的分割区域
+              │          └── 窗口：类似浏览器标签页
+              └── 会话：一组窗口的集合，可断开后重连
+```
+
+### 前缀键
+
+tmux 的快捷键需要先按 **前缀键** 再按功能键。本配置支持两个前缀键：
+
+- `Ctrl-b`（默认）
+- `Ctrl-a`（GNU Screen 兼容）
+
+### 会话管理
+
+```bash
+# 终端命令
+tmux new -s <name>           新建会话
+tmux a -t <name>             连接会话
+tmux ls                      列出所有会话
+tmux kill-session -t <name>  关闭会话
+```
+
+| 快捷键 | 功能 |
+|---|---|
+| `<prefix> d` | 断开当前会话 |
+| `<prefix> s` | 选择会话列表 |
+| `<prefix> $` | 重命名当前会话 |
+| `<prefix> C-c` | 新建会话 |
+| `<prefix> C-f` | 查找会话 |
+| `<prefix> (` / `)` | 切换到上一个 / 下一个会话 |
+
+### 窗口管理
+
+| 快捷键 | 功能 |
+|---|---|
+| `<prefix> c` | 新建窗口 |
+| `<prefix> ,` | 重命名当前窗口 |
+| `<prefix> &` | 关闭当前窗口 |
+| `<prefix> C-h` / `C-l` | 上一个 / 下一个窗口 |
+| `<prefix> Tab` | 跳转到上次活动的窗口 |
+| `<prefix> w` | 窗口列表 |
+
+### 面板管理
+
+| 快捷键 | 功能 |
+|---|---|
+| `<prefix> -` | 水平分割 |
+| `<prefix> _` | 垂直分割 |
+| `<prefix> h` / `j` / `k` / `l` | Vim 风格面板导航 |
+| `<prefix> H` / `J` / `K` / `L` | 调整面板大小 |
+| `<prefix> x` | 关闭当前面板 |
+| `<prefix> z` | 最大化 / 还原当前面板 |
+| `<prefix> q` | 显示面板编号，按数字跳转 |
+| `<prefix> {` / `}` | 与上方 / 下方面板交换 |
+| `<prefix> m` | 切换鼠标模式 |
+
+### 复制模式
+
+按 `<prefix> Enter` 进入复制模式（Vi 风格）：
+
+| 快捷键 | 功能 |
+|---|---|
+| `v` | 开始选择 |
+| `y` | 复制选中内容 |
+| `Escape` | 取消 |
+| `<prefix> b` | 列出粘贴缓冲区 |
+| `<prefix> p` | 粘贴 |
+
+### 其他
+
+| 快捷键 | 功能 |
+|---|---|
+| `<prefix> r` | 重新加载配置 |
+| `<prefix> e` | 编辑 .tmux.conf.local |
+| `<prefix> ?` | 列出所有快捷键 |
+| `<prefix> S` | 保存会话（tmux-resurrect） |
+| `<prefix> R` | 恢复会话（tmux-resurrect） |
+
+### 学习资源
+
+- [The Tao of tmux](https://tao-of-tmux.readthedocs.io/) — 最受推荐的 tmux 指南
+- [tmux Cheat Sheet](https://tmuxcheatsheet.com/) — 速查表
+- [gpakosz/.tmux](https://github.com/gpakosz/.tmux) — 本配置的基础框架
+
+## zsh
+
+功能强大的 shell，拥有更好的补全、语法高亮和主题系统。
+
+基于 [oh-my-zsh](https://ohmyz.sh/) 框架 + [Powerlevel10k](https://github.com/romkatv/powerlevel10k) 主题，提供美观的提示符和丰富的插件生态。
+
+### 插件
+
+| 插件 | 说明 |
+|---|---|
+| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | 根据历史记录自动建议命令，按 `→` 接受 |
+| [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | 命令行实时语法高亮，错误命令显示红色 |
+| [z](https://github.com/agkozak/zsh-z) | 快速跳转常用目录，如 `z proj` 跳转到最常访问的匹配目录 |
+| [git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) | Git 命令缩写（如 `gst` = `git status`，`gco` = `git checkout`） |
+| [tmux](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux) | tmux 命令缩写（如 `ta` = `tmux attach`） |
+| [npm](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/npm) | npm 命令补全 |
+| [pnpm](https://github.com/ntnyq/omz-plugin-pnpm) | pnpm 命令补全 |
+
+### 常用快捷键
+
+| 快捷键 | 功能 |
+|---|---|
+| `Ctrl-a` / `Ctrl-e` | 光标移到行首 / 行尾 |
+| `Ctrl-w` | 删除光标前一个单词 |
+| `Ctrl-u` / `Ctrl-k` | 删除到行首 / 行尾 |
+| `Ctrl-r` | 搜索历史命令 |
+| `Ctrl-l` | 清屏 |
+| `↑` | 根据已输入内容搜索历史（前缀匹配） |
+| `→` | 接受 autosuggestions 建议 |
+
+### 自定义别名
+
+```bash
+alias python="python3"
+alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
+alias unsetproxy="unset ALL_PROXY"
+```
+
+### 常用命令
+
+```bash
+p10k configure              # 重新配置 Powerlevel10k 主题
+omz update                  # 更新 oh-my-zsh
+```
+
+测量启动耗时：
+
+```bash
+for i in $(seq 1 5); do /usr/bin/time /bin/zsh -i -c exit; done
+```
+
+### 学习资源
+
+- [A User's Guide to ZSH](https://zsh.sourceforge.io/Guide/) — 最全面的 zsh 指南
+- [oh-my-zsh Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/plugins) — 插件列表
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) — 主题文档

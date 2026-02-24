@@ -1,26 +1,26 @@
 # to-vim-tmux-zsh
 
-开箱即用的 Neovim + tmux + zsh 开发环境配置。
+A batteries-included Neovim + tmux + zsh development environment.
 
-## 安装
+## Installation
 
-### 依赖
+### Prerequisites
 
 - [Neovim](https://neovim.io/) (>= 0.11.0)
 - [Nerd Fonts](https://www.nerdfonts.com/)
 - [oh-my-zsh](https://ohmyz.sh/)
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k) — zsh 主题
-- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) — zsh 插件
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) — zsh 插件
-- [omz-plugin-pnpm](https://github.com/ntnyq/omz-plugin-pnpm) — zsh 插件（pnpm 补全）
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k) — zsh theme
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) — zsh plugin
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) — zsh plugin
+- [omz-plugin-pnpm](https://github.com/ntnyq/omz-plugin-pnpm) — zsh plugin (pnpm completions)
 
-### 步骤
+### Steps
 
 ```bash
-# 克隆仓库
+# Clone the repository
 git clone git@github.com:FengShangWuQi/to-vim-tmux-zsh.git ~/Documents/to-vim-tmux-zsh
 
-# 建立软链接（如已有同名文件，请先备份）
+# Create symlinks (back up existing files first if needed)
 ln -s ~/Documents/to-vim-tmux-zsh/.config/nvim ~/.config/nvim
 ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf ~/.tmux.conf
 ln -s ~/Documents/to-vim-tmux-zsh/.tmux.conf.local ~/.tmux.conf.local
@@ -28,324 +28,324 @@ ln -s ~/Documents/to-vim-tmux-zsh/.zshrc ~/.zshrc
 ln -s ~/Documents/to-vim-tmux-zsh/.p10k.zsh ~/.p10k.zsh
 ```
 
-首次启动 `nvim`，[lazy.nvim](https://github.com/folke/lazy.nvim) 会自动安装所有插件。
+On first launch of `nvim`, [lazy.nvim](https://github.com/folke/lazy.nvim) will automatically install all plugins.
 
 ## Neovim
 
-本项目选择 Neovim 而非 Vim：
+Why Neovim over Vim:
 
-- **Lua 配置** — 用真正的编程语言写配置，逻辑清晰，远比 VimScript 易读易维护
-- **内置 LSP 客户端** — 原生支持语言服务协议，无需依赖重量级插件即可获得补全、跳转、重构等能力
-- **内置 Tree-sitter** — 基于语法树的高亮和代码分析，比正则匹配更精准
-- **异步架构** — 基于 libuv 的异步 I/O，插件运行不阻塞编辑
-- **现代插件生态** — Telescope、lazy.nvim、blink.cmp 等活跃插件均为 Neovim 专属，社区发展更快
+- **Lua configuration** — write config in a real programming language, far more readable and maintainable than VimScript
+- **Built-in LSP client** — native Language Server Protocol support for completion, go-to-definition, refactoring, and more
+- **Built-in Tree-sitter** — syntax-tree-based highlighting and code analysis, more accurate than regex matching
+- **Async architecture** — libuv-based async I/O, plugins never block the editor
+- **Modern plugin ecosystem** — Telescope, lazy.nvim, blink.cmp and other active plugins are Neovim-exclusive, with a faster-growing community
 
-基于 [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) 的精简配置，开箱即用。
+A lean configuration based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim), ready to use out of the box.
 
-### 模式
+### Modes
 
-Neovim 是模态编辑器，不同模式下按键含义不同：
+Neovim is a modal editor — keys behave differently depending on the current mode:
 
-| 模式 | 进入方式 | 用途 |
+| Mode | Enter with | Purpose |
 |---|---|---|
-| Normal | `Esc` | 默认模式，用于导航和执行命令 |
-| Insert | `i` / `a` / `o` | 输入文本 |
-| Visual | `v` / `V` / `Ctrl-v` | 选择文本 |
-| Command | `:` | 执行命令（如 `:w` 保存，`:q` 退出） |
+| Normal | `Esc` | Default mode for navigation and commands |
+| Insert | `i` / `a` / `o` | Text input |
+| Visual | `v` / `V` / `Ctrl-v` | Text selection |
+| Command | `:` | Execute commands (e.g. `:w` save, `:q` quit) |
 
-> 首次使用建议在 Neovim 中运行 `:Tutor`，跟随内置教程学习基础操作。
+> New to Vim? Run `:Tutor` inside Neovim to follow the built-in tutorial.
 
-### 基础操作
+### Basic Operations
 
 ```
-# 移动
+# Movement
 
-h j k l                 左 下 上 右
-w / b                   下一个 / 上一个单词
-0 / $                   行首 / 行尾
-gg / G                  文件开头 / 文件末尾
-Ctrl-d / Ctrl-u         向下 / 向上翻半页
+h j k l                 Left Down Up Right
+w / b                   Next / previous word
+0 / $                   Start / end of line
+gg / G                  Top / bottom of file
+Ctrl-d / Ctrl-u         Scroll half-page down / up
 
-# 编辑
+# Editing
 
-i / a                   光标前 / 光标后插入
-o / O                   下方 / 上方新建一行
-x                       删除光标处字符
-dd                      删除整行
-yy                      复制整行
-p                       粘贴
-u / Ctrl-r              撤销 / 重做
-.                       重复上一次操作
+i / a                   Insert before / after cursor
+o / O                   Open new line below / above
+x                       Delete character under cursor
+dd                      Delete entire line
+yy                      Yank (copy) entire line
+p                       Paste
+u / Ctrl-r              Undo / redo
+.                       Repeat last action
 
-# 组合操作（动词 + 范围）
+# Compound operations (verb + range)
 
-dw                      删除一个单词
-ciw                     修改光标所在单词
-di"                     删除引号内的内容
-ya)                     复制括号内的内容（含括号）
+dw                      Delete a word
+ciw                     Change inner word
+di"                     Delete inside quotes
+ya)                     Yank around parentheses (including parens)
 ```
 
-### Leader 键
+### Leader Key
 
-本配置的 Leader 键为 **空格键**。按下空格后等待片刻，[which-key](https://github.com/folke/which-key.nvim) 会弹出提示面板，显示所有可用的后续按键。
+The Leader key is **Space**. Press Space and wait briefly — [which-key](https://github.com/folke/which-key.nvim) will pop up a panel showing all available follow-up keys.
 
-### 搜索（Telescope）
+### Search (Telescope)
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `<leader>sf` | 搜索文件 |
-| `<leader>sg` | 全局内容搜索（grep） |
-| `<leader>sw` | 搜索光标所在单词 |
-| `<leader>s.` | 最近打开的文件 |
-| `<leader>sr` | 恢复上次搜索 |
-| `<leader>/` | 当前文件内搜索 |
-| `<leader><leader>` | 切换 buffer |
-| `<leader>sh` | 搜索帮助文档 |
-| `<leader>sk` | 搜索快捷键 |
-| `<leader>ss` | 搜索 Telescope 选择器 |
-| `<leader>sd` | 搜索诊断信息 |
-| `<leader>sc` | 搜索命令 |
-| `<leader>s/` | 在已打开的文件中搜索 |
-| `<leader>sn` | 搜索 Neovim 配置文件 |
+| `<leader>sf` | Search files |
+| `<leader>sg` | Live grep (search content) |
+| `<leader>sw` | Search word under cursor |
+| `<leader>s.` | Recent files |
+| `<leader>sr` | Resume last search |
+| `<leader>/` | Fuzzy search in current file |
+| `<leader><leader>` | Switch buffer |
+| `<leader>sh` | Search help tags |
+| `<leader>sk` | Search keymaps |
+| `<leader>ss` | Search Telescope pickers |
+| `<leader>sd` | Search diagnostics |
+| `<leader>sc` | Search commands |
+| `<leader>s/` | Search in open files |
+| `<leader>sn` | Search Neovim config files |
 
-### 文件树（Neo-tree）
+### File Tree (Neo-tree)
 
-启动 nvim 会自动打开文件树，`Ctrl-l` 切换到编辑区，`Ctrl-h` 切回文件树。
+Opening nvim automatically shows the file tree. Use `Ctrl-l` to switch to the editor and `Ctrl-h` to switch back to the tree.
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `Ctrl-t` | 打开 / 关闭文件树 |
-| `Ctrl-f` | 在文件树中定位当前文件 |
+| `Ctrl-t` | Toggle file tree |
+| `Ctrl-f` | Reveal current file in tree |
 
-文件树内操作：`Enter` 打开文件，`a` 新建，`d` 删除，`r` 重命名，`m` 移动。
+Inside the tree: `Enter` to open, `a` to add, `d` to delete, `r` to rename, `m` to move.
 
-### 代码导航与编辑（LSP）
+### Code Navigation & Editing (LSP)
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `grd` | 跳转到定义 |
-| `grr` | 查找引用 |
-| `grn` | 重命名符号 |
-| `gra` | 代码操作（Code Action） |
-| `gri` | 跳转到实现 |
-| `gO` | 当前文件符号列表 |
-| `gW` | 工作区符号搜索 |
-| `grt` | 跳转到类型定义 |
-| `grD` | 跳转到声明 |
-| `K` | 查看悬浮文档 |
-| `<leader>f` | 格式化当前文件 |
-| `<leader>th` | 切换 Inlay Hints |
+| `grd` | Go to definition |
+| `grr` | Find references |
+| `grn` | Rename symbol |
+| `gra` | Code action |
+| `gri` | Go to implementation |
+| `gO` | Document symbols |
+| `gW` | Workspace symbols |
+| `grt` | Go to type definition |
+| `grD` | Go to declaration |
+| `K` | Hover documentation |
+| `<leader>f` | Format current file |
+| `<leader>th` | Toggle inlay hints |
 
-自动补全在输入时触发，`Ctrl-n` / `Ctrl-p` 上下选择，`Ctrl-y` 确认。保存文件时会自动格式化。
+Auto-completion triggers as you type. Use `Ctrl-n` / `Ctrl-p` to navigate and `Ctrl-y` to confirm. Files are auto-formatted on save.
 
-格式化依赖 [prettierd](https://github.com/fsouza/prettierd) 或 [prettier](https://prettier.io/)，需预先安装：`npm install -g @fsouza/prettierd prettier`。Lua 文件使用 [stylua](https://github.com/JohnnyMorganz/StyLua)（通过 Mason 自动安装）。
+Formatting requires [prettierd](https://github.com/fsouza/prettierd) or [prettier](https://prettier.io/): `npm install -g @fsouza/prettierd prettier`. Lua files use [stylua](https://github.com/JohnnyMorganz/StyLua) (auto-installed via Mason).
 
-### 注释
+### Comments
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `gcc` | 切换当前行注释 |
-| `gc` + 动作 | 切换选区注释（如 `gcap` 注释整段） |
+| `gcc` | Toggle line comment |
+| `gc` + motion | Toggle comment over motion (e.g. `gcap` to comment a paragraph) |
 
 ### Git
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `]h` / `[h` | 下一个 / 上一个修改块（hunk） |
-| `<leader>hs` | 暂存修改块 |
-| `<leader>hr` | 还原修改块 |
-| `<leader>hu` | 撤销暂存修改块 |
-| `<leader>hp` | 预览修改块 |
-| `<leader>hb` | 显示当前行 blame |
-| `<leader>hd` | 查看当前文件 diff |
-| `<leader>gd` | 打开 Git diff |
-| `<leader>gh` | 当前文件历史 |
-| `<leader>gH` | 分支历史 |
+| `]h` / `[h` | Next / previous hunk |
+| `<leader>hs` | Stage hunk |
+| `<leader>hr` | Reset hunk |
+| `<leader>hu` | Undo stage hunk |
+| `<leader>hp` | Preview hunk |
+| `<leader>hb` | Blame current line |
+| `<leader>hd` | Diff current file |
+| `<leader>gd` | Open Git diff |
+| `<leader>gh` | File history |
+| `<leader>gH` | Branch history |
 
-### 窗口与分屏
+### Windows & Splits
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `Ctrl-h/j/k/l` | 在窗口间移动焦点 |
-| `:vs` / `:sp` | 垂直 / 水平分屏 |
-| `:q` | 关闭当前窗口 |
+| `Ctrl-h/j/k/l` | Move focus between windows |
+| `:vs` / `:sp` | Vertical / horizontal split |
+| `:q` | Close current window |
 
 ### Emmet
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `<leader>xe` | 用 Emmet 缩写包裹选区 |
+| `<leader>xe` | Wrap selection with Emmet abbreviation |
 
-### 文本对象与编辑增强（mini.nvim）
+### Text Objects & Editing Enhancements (mini.nvim)
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `sa` + 范围 + 字符 | 添加包围字符（如 `saiw"` 给单词加引号） |
-| `sd` + 字符 | 删除包围字符（如 `sd"` 删除引号） |
-| `sr` + 旧字符 + 新字符 | 替换包围字符（如 `sr"'` 把引号换成单引号） |
+| `sa` + range + char | Add surrounding (e.g. `saiw"` to quote a word) |
+| `sd` + char | Delete surrounding (e.g. `sd"` to remove quotes) |
+| `sr` + old + new | Replace surrounding (e.g. `sr"'` to change `"` to `'`) |
 
-- **mini.ai** — 增强文本对象，支持函数参数等更多范围
-- **mini.pairs** — 自动配对括号和引号
+- **mini.ai** — enhanced text objects, supports function arguments and more
+- **mini.pairs** — auto-pair brackets and quotes
 
-### 其他快捷键
+### Other Keybindings
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `Esc` | 清除搜索高亮 |
-| `Esc Esc` | 退出终端模式 |
-| `<leader>q` | 打开诊断信息列表 |
+| `Esc` | Clear search highlight |
+| `Esc Esc` | Exit terminal mode |
+| `<leader>q` | Open diagnostics list |
 
-### 其他功能
+### Other Features
 
-- **[guess-indent](https://github.com/NMAC427/guess-indent.nvim)** — 自动检测文件缩进风格
-- **[todo-comments](https://github.com/folke/todo-comments.nvim)** — 高亮代码中的 TODO / FIXME / NOTE 等注释
-- **[wakatime](https://wakatime.com/)** — 编码时间追踪（需要 WakaTime 账号）
-- **[render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim)** — 在缓冲区内渲染 Markdown（标题、表格、代码块等）
-- **[markdown.nvim](https://github.com/tadmccorkle/markdown.nvim)** — Markdown 编辑增强（列表管理、快捷键切换加粗/斜体等）
+- **[guess-indent](https://github.com/NMAC427/guess-indent.nvim)** — auto-detect file indentation style
+- **[todo-comments](https://github.com/folke/todo-comments.nvim)** — highlight TODO / FIXME / NOTE comments in code
+- **[wakatime](https://wakatime.com/)** — coding time tracking (requires a WakaTime account)
+- **[render-markdown](https://github.com/MeanderingProgrammer/render-markdown.nvim)** — render Markdown in-buffer (headings, tables, code blocks, etc.)
+- **[markdown.nvim](https://github.com/tadmccorkle/markdown.nvim)** — Markdown editing enhancements (list management, bold/italic shortcuts, etc.)
 
-### 常用命令
+### Common Commands
 
 ```
-:w                      保存
-:q                      退出（未保存会提示）
-:wq 或 ZZ               保存并退出
-:Mason                  管理语言服务（安装 / 更新 LSP）
-:Lazy                   管理插件
-:RenderMarkdown toggle  切换 Markdown 渲染
-:checkhealth            检查环境是否正常
+:w                      Save
+:q                      Quit (warns if unsaved)
+:wq or ZZ               Save and quit
+:Mason                  Manage language servers (install / update LSP)
+:Lazy                   Manage plugins
+:RenderMarkdown toggle  Toggle Markdown rendering
+:checkhealth            Check environment health
 ```
 
-### 学习资源
+### Learning Resources
 
-- [Learn Vim](https://github.com/iggredible/Learn-Vim) — Vim/Neovim 入门书
-- [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) — 配置模板，注释即教程
-- [Lua 快速入门](https://learnxinyminutes.com/docs/lua/) — 10-15 分钟了解 Lua 基础
+- [Learn Vim](https://github.com/iggredible/Learn-Vim) — beginner-friendly Vim/Neovim book
+- [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) — config template with comments as documentation
+- [Learn Lua in Y Minutes](https://learnxinyminutes.com/docs/lua/) — 10-15 minute Lua primer
 
 ## tmux
 
-终端复用器，一个窗口管理多个会话、窗口和面板，断开连接后会话依然保持运行。
+A terminal multiplexer — manage multiple sessions, windows, and panes in a single terminal. Sessions persist after disconnecting.
 
-基于 [gpakosz/.tmux](https://github.com/gpakosz/.tmux) 配置，开箱即用，支持 Powerline 风格状态栏。配置分两层：`.tmux.conf`（基础框架，不要编辑）和 `.tmux.conf.local`（个人定制）。
+Based on [gpakosz/.tmux](https://github.com/gpakosz/.tmux), with a Powerline-style status bar out of the box. Configuration is split into two layers: `.tmux.conf` (base framework — do not edit) and `.tmux.conf.local` (personal customization).
 
-### 核心概念
+### Core Concepts
 
 ```
 Server ── Session ── Window ── Pane
-              │          │        └── 面板：窗口内的分割区域
-              │          └── 窗口：类似浏览器标签页
-              └── 会话：一组窗口的集合，可断开后重连
+              │          │        └── Pane: a split region within a window
+              │          └── Window: like a browser tab
+              └── Session: a collection of windows, can be detached and reattached
 ```
 
-### 前缀键
+### Prefix Key
 
-tmux 的快捷键需要先按 **前缀键** 再按功能键。本配置支持两个前缀键：
+tmux keybindings require pressing a **prefix key** first, then the action key. This config supports two prefix keys:
 
-- `Ctrl-b`（默认）
-- `Ctrl-a`（GNU Screen 兼容）
+- `Ctrl-b` (default)
+- `Ctrl-a` (GNU Screen compatible)
 
-### 会话管理
+### Session Management
 
 ```bash
-# 终端命令
-tmux new -s <name>           新建会话
-tmux a -t <name>             连接会话
-tmux ls                      列出所有会话
-tmux kill-session -t <name>  关闭会话
+# Terminal commands
+tmux new -s <name>           Create a new session
+tmux a -t <name>             Attach to a session
+tmux ls                      List all sessions
+tmux kill-session -t <name>  Kill a session
 ```
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `<prefix> d` | 断开当前会话 |
-| `<prefix> s` | 选择会话列表 |
-| `<prefix> $` | 重命名当前会话 |
-| `<prefix> C-c` | 新建会话 |
-| `<prefix> C-f` | 查找会话 |
-| `<prefix> (` / `)` | 切换到上一个 / 下一个会话 |
+| `<prefix> d` | Detach from current session |
+| `<prefix> s` | Session picker |
+| `<prefix> $` | Rename current session |
+| `<prefix> C-c` | Create new session |
+| `<prefix> C-f` | Find session |
+| `<prefix> (` / `)` | Switch to previous / next session |
 
-### 窗口管理
+### Window Management
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `<prefix> c` | 新建窗口 |
-| `<prefix> ,` | 重命名当前窗口 |
-| `<prefix> &` | 关闭当前窗口 |
-| `<prefix> C-h` / `C-l` | 上一个 / 下一个窗口 |
-| `<prefix> Tab` | 跳转到上次活动的窗口 |
-| `<prefix> w` | 窗口列表 |
+| `<prefix> c` | Create new window |
+| `<prefix> ,` | Rename current window |
+| `<prefix> &` | Close current window |
+| `<prefix> C-h` / `C-l` | Previous / next window |
+| `<prefix> Tab` | Jump to last active window |
+| `<prefix> w` | Window list |
 
-### 面板管理
+### Pane Management
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `<prefix> -` | 水平分割 |
-| `<prefix> _` | 垂直分割 |
-| `<prefix> h` / `j` / `k` / `l` | Vim 风格面板导航 |
-| `<prefix> H` / `J` / `K` / `L` | 调整面板大小 |
-| `<prefix> x` | 关闭当前面板 |
-| `<prefix> z` | 最大化 / 还原当前面板 |
-| `<prefix> q` | 显示面板编号，按数字跳转 |
-| `<prefix> {` / `}` | 与上方 / 下方面板交换 |
-| `<prefix> m` | 切换鼠标模式 |
+| `<prefix> -` | Horizontal split |
+| `<prefix> _` | Vertical split |
+| `<prefix> h` / `j` / `k` / `l` | Vim-style pane navigation |
+| `<prefix> H` / `J` / `K` / `L` | Resize pane |
+| `<prefix> x` | Close current pane |
+| `<prefix> z` | Maximize / restore current pane |
+| `<prefix> q` | Show pane numbers, press number to jump |
+| `<prefix> {` / `}` | Swap with pane above / below |
+| `<prefix> m` | Toggle mouse mode |
 
-### 复制模式
+### Copy Mode
 
-按 `<prefix> Enter` 进入复制模式（Vi 风格）：
+Press `<prefix> Enter` to enter copy mode (Vi-style):
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `v` | 开始选择 |
-| `y` | 复制选中内容 |
-| `Escape` | 取消 |
-| `<prefix> b` | 列出粘贴缓冲区 |
-| `<prefix> p` | 粘贴 |
+| `v` | Begin selection |
+| `y` | Yank (copy) selection |
+| `Escape` | Cancel |
+| `<prefix> b` | List paste buffers |
+| `<prefix> p` | Paste |
 
-### 其他
+### Other
 
-| 快捷键 | 功能 |
+| Keybinding | Action |
 |---|---|
-| `<prefix> r` | 重新加载配置 |
-| `<prefix> e` | 编辑 .tmux.conf.local |
-| `<prefix> ?` | 列出所有快捷键 |
-| `<prefix> S` | 保存会话（tmux-resurrect） |
-| `<prefix> R` | 恢复会话（tmux-resurrect） |
+| `<prefix> r` | Reload configuration |
+| `<prefix> e` | Edit .tmux.conf.local |
+| `<prefix> ?` | List all keybindings |
+| `<prefix> S` | Save session (tmux-resurrect) |
+| `<prefix> R` | Restore session (tmux-resurrect) |
 
-### 学习资源
+### Learning Resources
 
-- [The Tao of tmux](https://tao-of-tmux.readthedocs.io/) — 最受推荐的 tmux 指南
-- [tmux Cheat Sheet](https://tmuxcheatsheet.com/) — 速查表
-- [gpakosz/.tmux](https://github.com/gpakosz/.tmux) — 本配置的基础框架
+- [The Tao of tmux](https://tao-of-tmux.readthedocs.io/) — the most recommended tmux guide
+- [tmux Cheat Sheet](https://tmuxcheatsheet.com/) — quick reference
+- [gpakosz/.tmux](https://github.com/gpakosz/.tmux) — the base framework for this config
 
 ## zsh
 
-功能强大的 shell，拥有更好的补全、语法高亮和主题系统。
+A powerful shell with better completion, syntax highlighting, and theming.
 
-基于 [oh-my-zsh](https://ohmyz.sh/) 框架 + [Powerlevel10k](https://github.com/romkatv/powerlevel10k) 主题，提供美观的提示符和丰富的插件生态。
+Based on [oh-my-zsh](https://ohmyz.sh/) + [Powerlevel10k](https://github.com/romkatv/powerlevel10k) theme, providing a beautiful prompt and a rich plugin ecosystem.
 
-### 插件
+### Plugins
 
-| 插件 | 说明 |
+| Plugin | Description |
 |---|---|
-| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | 根据历史记录自动建议命令，按 `→` 接受 |
-| [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | 命令行实时语法高亮，错误命令显示红色 |
-| [z](https://github.com/agkozak/zsh-z) | 快速跳转常用目录，如 `z proj` 跳转到最常访问的匹配目录 |
-| [git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) | Git 命令缩写（如 `gst` = `git status`，`gco` = `git checkout`） |
-| [tmux](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux) | tmux 命令缩写（如 `ta` = `tmux attach`） |
-| [npm](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/npm) | npm 命令补全 |
-| [pnpm](https://github.com/ntnyq/omz-plugin-pnpm) | pnpm 命令补全 |
+| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) | Suggests commands from history, press `→` to accept |
+| [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | Real-time syntax highlighting, invalid commands turn red |
+| [z](https://github.com/agkozak/zsh-z) | Jump to frequent directories, e.g. `z proj` jumps to the best match |
+| [git](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git) | Git aliases (`gst` = `git status`, `gco` = `git checkout`, etc.) |
+| [tmux](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/tmux) | tmux aliases (`ta` = `tmux attach`, etc.) |
+| [npm](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/npm) | npm completions |
+| [pnpm](https://github.com/ntnyq/omz-plugin-pnpm) | pnpm completions |
 
-### 常用快捷键
+### Common Shortcuts
 
-| 快捷键 | 功能 |
+| Shortcut | Action |
 |---|---|
-| `Ctrl-a` / `Ctrl-e` | 光标移到行首 / 行尾 |
-| `Ctrl-w` | 删除光标前一个单词 |
-| `Ctrl-u` / `Ctrl-k` | 删除到行首 / 行尾 |
-| `Ctrl-r` | 搜索历史命令 |
-| `Ctrl-l` | 清屏 |
-| `↑` | 根据已输入内容搜索历史（前缀匹配） |
-| `→` | 接受 autosuggestions 建议 |
+| `Ctrl-a` / `Ctrl-e` | Move cursor to start / end of line |
+| `Ctrl-w` | Delete previous word |
+| `Ctrl-u` / `Ctrl-k` | Delete to start / end of line |
+| `Ctrl-r` | Search command history |
+| `Ctrl-l` | Clear screen |
+| `↑` | Search history by prefix (based on current input) |
+| `→` | Accept autosuggestion |
 
-### 自定义别名
+### Custom Aliases
 
 ```bash
 alias python="python3"
@@ -353,21 +353,21 @@ alias setproxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 alias unsetproxy="unset ALL_PROXY"
 ```
 
-### 常用命令
+### Common Commands
 
 ```bash
-p10k configure              # 重新配置 Powerlevel10k 主题
-omz update                  # 更新 oh-my-zsh
+p10k configure              # Reconfigure Powerlevel10k theme
+omz update                  # Update oh-my-zsh
 ```
 
-测量启动耗时：
+Measure startup time:
 
 ```bash
 for i in $(seq 1 5); do /usr/bin/time /bin/zsh -i -c exit; done
 ```
 
-### 学习资源
+### Learning Resources
 
-- [A User's Guide to ZSH](https://zsh.sourceforge.io/Guide/) — 最全面的 zsh 指南
-- [oh-my-zsh Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/plugins) — 插件列表
-- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) — 主题文档
+- [A User's Guide to ZSH](https://zsh.sourceforge.io/Guide/) — the most comprehensive zsh guide
+- [oh-my-zsh Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/plugins) — plugin directory
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k) — theme documentation
