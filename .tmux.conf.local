@@ -407,5 +407,4 @@ set -g @resurrect-restore 'R'
 # "$@"
 # # /!\ do not remove the previous line
 
-setw -g automatic-rename off
 
