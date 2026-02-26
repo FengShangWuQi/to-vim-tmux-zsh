@@ -1,6 +1,6 @@
 # to-vim-tmux-zsh
 
-开箱即用的 Neovim + tmux + zsh 开发环境配置。
+如何让 Vim，Tmux，Zsh 成为我们的神器。
 
 ## 安装
 

@@ -1,6 +1,6 @@
 # to-vim-tmux-zsh
 
-A batteries-included Neovim + tmux + zsh development environment.
+Turning Vim, tmux, and zsh into Developer Superpowers.
 
 ## Installation
 
